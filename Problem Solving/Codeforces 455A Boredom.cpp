@@ -14,8 +14,8 @@ int main()
 	cin >> n;
 	
 	long long a;
-	long long c[100010]; // ¼ýÀÚ ¸î°³¾¿ ÀÖ´ÂÁö countÇØ¼­ ÀúÀå 
-	long long dp[100010]; // dp[i] : i~N ¹üÀ§ Áß °¡Àå ÃÖ´ë°ª, µû¶ó¼­ dp[1]ÀÌ ´äÀÌ µÊ 
+	long long c[100010]; // ìˆ«ìž ëª‡ê°œì”© ìžˆëŠ”ì§€ countí•´ì„œ ì €ìž¥ 
+	long long dp[100010]; // dp[i] : 1~i ë²”ìœ„ ì¤‘ ê°€ìž¥ ìµœëŒ€ê°’
 	
 	for(int i=0; i<n; i++) { 
 		cin >> a;
