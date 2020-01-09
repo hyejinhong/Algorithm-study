@@ -1,0 +1,45 @@
+package project;
+
+import java.util.*;
+
+public class QuadTree {
+	
+	static String str;
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner scan = new Scanner(System.in);
+		int c = scan.nextInt();
+		
+		// 상하반전
+		// 1 -> 3
+		// 2 -> 4
+		// 3 -> 1
+		// 4 -> 2
+		scan.nextLine();
+		for(int test=1; test<=c; test++) {
+			str = scan.nextLine();
+			String result = reverse(0);
+			System.out.println(result);
+		}
+	}
+	
+	// 압축을 푸는 함수
+	public static String reverse(int index) {
+		char c = str.charAt(index);
+		if(c == 'b' || c == 'w') {
+			return Character.toString(c);
+		}
+		
+		index++;
+		String piece2 = reverse(index);
+		index++;
+		String piece1 = reverse(index);
+		index++;
+		String piece3 = reverse(index);
+		index++;
+		String piece4 = reverse(index);
+		
+		return "x" + piece3 + piece4 + piece2 + piece1;
+	}
+}
