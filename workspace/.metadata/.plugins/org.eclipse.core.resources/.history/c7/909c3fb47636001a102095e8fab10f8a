@@ -1,0 +1,40 @@
+package algospot;
+
+import java.util.*;
+public class TrianglePath {
+
+	static int n;
+	static int[][] triangle;
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner scan = new Scanner(System.in);
+		int c = scan.nextInt();
+		
+		for(int test=1; test<=c; test++) {
+			n = scan.nextInt();
+			
+			triangle = new int[n][n];
+			
+			for(int i=0; i<n; i++) {
+				for(int j=0; j<=i; j++) {
+					triangle[i][j] = scan.nextInt();
+				}
+			}
+			
+			System.out.println(pathSum(0, 0, 0));
+		}
+	}
+	
+	// 완전탐색
+	public static int pathSum(int y, int x, int sum) {
+		// 기저: 맨 아래줄에 도착함
+		if(y == n-1) {
+			return sum + triangle[y][x];
+		}
+		
+		int ret = Math.max(pathSum(y+1, x, sum), pathSum(y+1, x+1, sum));
+		return ret;
+	}
+
+}
