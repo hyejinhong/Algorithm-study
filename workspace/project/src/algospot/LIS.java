@@ -91,6 +91,7 @@ public class LIS {
 				ret = Math.max(ret, lis2(i) + 1);
 			}
 		}
+		cache[start] = ret;
 		return ret;
 	}
 
