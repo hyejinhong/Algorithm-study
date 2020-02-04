@@ -1,0 +1,45 @@
+package boj;
+
+import java.util.*;
+public class BOJ_11047 {
+
+	static int n;
+	static int k;
+	static int coin = 0;
+	static int[] arr = new int[11];
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner scan = new Scanner(System.in);
+		
+		n = scan.nextInt();
+		k = scan.nextInt();
+		for(int i=0; i<n; i++) {
+			arr[i] = scan.nextInt();
+		}
+		pick(k);
+		System.out.println(coin);
+	}
+	
+	
+	// k를 넘지 않는 가장 큰 것들을 계속 더한다..
+	// money: 남은 돈, coin:
+	public static void pick(int money) { // money: 남은 돈
+		// 기저: 남은 돈이 가장 싼 동전보다 작을 때
+		if(money < arr[0]) {
+			return;
+		}
+		
+		// money를 넘지 않는 가장 큰  동전 찾기
+		int index = 0;
+		for(int i=1; i<n; i++) {
+			if(arr[i] > money) {
+				index = i-1;
+				break;
+			}
+		}
+		
+		coin++;
+		pick(money-arr[index]);
+	}
+}
