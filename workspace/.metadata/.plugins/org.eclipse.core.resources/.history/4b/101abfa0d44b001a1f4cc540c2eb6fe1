@@ -1,0 +1,50 @@
+package algospot;
+
+import java.util.*;
+public class Brackets2 {
+	
+	static String str;
+	static Stack<Character> stack = new Stack<>();
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner scan = new Scanner(System.in);
+		int c = scan.nextInt();
+		scan.nextLine();
+		
+		for(int test=1; test<=c; test++) {
+			str = scan.nextLine();
+			System.out.println(match() ? "YES" : "NO");
+			stack.clear();
+		}
+	}
+	
+	public static boolean match() {
+		for(int i=0; i<str.length(); i++) {
+			char c = str.charAt(i);
+			// 여는 괄호인지 확인
+			if(c == '(' || c == '{' || c == '[') {
+				stack.push(c);
+			}
+			// 닫는 괄호인데
+			else {
+				// 스택이 비어있으면 짝을 못맞추지
+				if(stack.empty()) {
+					return false;
+				}
+				if(c == ')' && stack.lastElement() != '(') {
+					return false;
+				}
+				else if(c == '}' && stack.lastElement() != '{') {
+					return false;
+				}
+				else if(c == ']' && stack.lastElement() != '[') {
+					return false;
+				}
+			}
+		}
+		
+		// 닫히지 않은 괄호가 없어야 성공
+		return stack.empty();
+	}
+}
