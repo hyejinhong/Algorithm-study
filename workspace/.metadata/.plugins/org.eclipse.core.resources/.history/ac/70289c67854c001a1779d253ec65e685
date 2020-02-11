@@ -1,0 +1,53 @@
+package algospot;
+
+import java.util.*;
+public class Numb3rs {
+
+	static int n;
+	static int d;
+	static int p;
+	static int[][] path = new int[50][50];
+	static int t;
+	static int[] q = new int[50];
+	
+	static int[] degree = new int[50];
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner scan = new Scanner(System.in);
+		int c = scan.nextInt();
+		
+		for(int test=1; test<=c; test++) {
+			n = scan.nextInt();
+			d = scan.nextInt();
+			p = scan.nextInt();
+			
+			for(int i=0; i<n; i++) {
+				for(int j=0; j<n; j++) {
+					path[i][j] = scan.nextInt();
+				}
+			}
+		
+			t = scan.nextInt();
+			for(int i=0; i<t; i++) {
+				q[i] = scan.nextInt(); 
+			}
+			
+			for(int i=0; i<n; i++) {
+				int count = 0;
+				for(int j=0; j<n; j++) {
+					if(path[i][j] == 1) {
+						count++;
+					}
+				}
+				degree[i] = count;
+			}
+			
+			System.out.println(Arrays.toString(degree));
+		}
+	}
+
+//	public static double search() {
+//		
+//	}
+}

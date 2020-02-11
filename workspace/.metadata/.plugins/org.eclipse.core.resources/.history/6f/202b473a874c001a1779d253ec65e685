@@ -1,0 +1,107 @@
+package algospot;
+
+import java.util.*;
+public class Numb3rs {
+
+	static int n;
+	static int d;
+	static int p;
+	static int[][] connected = new int[50][50];
+	static int t;
+	static int[] village = new int[50];
+	static int q;
+	static int[][] cache = new int[51][101];
+	
+	static int[] degree = new int[50];
+	static ArrayList<Integer> path = new ArrayList<>();
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner scan = new Scanner(System.in);
+		int c = scan.nextInt();
+		
+		for(int test=1; test<=c; test++) {
+			n = scan.nextInt();
+			d = scan.nextInt();
+			p = scan.nextInt();
+			
+			for(int i=0; i<n; i++) {
+				for(int j=0; j<n; j++) {
+					connected[i][j] = scan.nextInt();
+				}
+			}
+		
+			t = scan.nextInt();
+			for(int i=0; i<t; i++) {
+				village[i] = scan.nextInt(); 
+			}
+			
+			// 각 마을에 연결된 다른 마을의 수를 미리 저장해둠
+			for(int i=0; i<n; i++) {
+				int count = 0;
+				for(int j=0; j<n; j++) {
+					if(connected[i][j] == 1) {
+						count++;
+					}
+				}
+				degree[i] = count;
+			}
+			
+			for(int[] row : cache) {
+				Arrays.fill(row, -1);
+			}
+			
+			for(int i=0; i<t; i++) {
+				q = village[i];
+				path.add(p);
+				System.out.println(search2(0, q));
+			}
+		}
+	}
+
+	public static double search() {
+		// 기저: d일이 지난 경우
+		if(path.size() == d+1) {
+			// 경로가 q에서 끝나지 않은 경우
+			if(path.get(path.size()-1) != q) {
+				return 0.0;
+			}
+			// 확률 계산
+			double ret = 1.0;
+			for(int i=0; i<path.size()-1; i++){
+				ret /= degree[path.get(i)];
+			}
+			return ret;
+		}
+		
+		double ret = 0;
+		// 경로의 다음 위치를 결정한다.
+		for(int there=0; there<n; there++) {
+			if(connected[path.get(path.size()-1)][there] == 1) {
+				path.add(there);
+				ret += search();
+				path.remove(path.size()-1);
+			}
+		}
+		return ret;
+	}
+	
+	public static double search2(int here, int days) {
+		// 기저 사례: d일이 지난 경우
+		if(days == d) {
+			return here == q ? 1.0 : 0.0;
+		}
+		
+		if(cache[here][days] > -0.5) {
+			return cache[here][days];
+		}
+		
+		double ret = 0;
+		for(int there=0; there<n; there++) {
+			if(connected[here][there] == 1) {
+				ret += search2(there, days+1) / degree[here];
+			}
+		}
+		return ret;
+	}
+}
