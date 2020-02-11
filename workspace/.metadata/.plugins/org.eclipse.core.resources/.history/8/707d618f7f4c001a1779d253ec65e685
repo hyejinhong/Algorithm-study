@@ -2,12 +2,12 @@ package boj;
 
 import java.util.*;
 
-class MyStack {
+class Stack {
 	
 	int[] arr;
 	int pointer; // pointer-1에 마지막 원소가 들어있음
 	
-	public MyStack(int size) {
+	public Stack(int size) {
 		arr = new int[size];
 		pointer = 0;
 	}
@@ -64,7 +64,7 @@ public class BOJ_10828 {
 			operations[i] = scan.nextLine();
 		}
 		
-		MyStack stack = new MyStack(n);
+		Stack stack = new Stack(n);
 		
 		for(int i=0; i<n; i++) {
 			String[] op = operations[i].split(" ");
