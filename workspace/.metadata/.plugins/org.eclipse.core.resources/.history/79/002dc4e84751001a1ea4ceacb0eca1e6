@@ -1,0 +1,36 @@
+package algospot;
+
+import java.util.*;
+public class Nerd2 {
+
+	static int n;
+	static int[] p = new int[50000];
+	static int[] q = new int[50000];
+	static TreeMap<Integer, Integer> coords = new TreeMap<>();
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner scan = new Scanner(System.in);
+		int c = scan.nextInt();
+		
+		for(int test=1; test<=c; test++) {
+			n = scan.nextInt();
+			
+			for(int i=0; i<n; i++) {
+				p[i] = scan.nextInt();
+				q[i] = scan.nextInt();
+			}
+			
+			tree.clear();
+		}
+	}
+	
+	// 새로운 점 (x, y)가 기존의 다른 점들에 의해 지배당하는지 확인한다.
+	public static boolean isDominated(int x, int y) {
+		// x보다 오른쪽에 있는 점 중 가장 왼쪽에 있는 점을 찾는다.
+		if(tree.lowerEntry(x) == ) {
+			
+		}
+	}
+
+}
