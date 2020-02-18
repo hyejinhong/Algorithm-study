@@ -1,0 +1,75 @@
+package boj;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Arrays;
+
+public class BOJ_1003 {
+	
+	static int n;
+	static int[] cache = new int[41];
+	static int num0 = 0;
+	static int num1 = 0;
+	
+	public static void main(String[] args) throws IOException {
+		// TODO Auto-generated method stub
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		int t = Integer.parseInt(br.readLine());
+		
+		for(int test=1; test<=t; test++) {
+			n = Integer.parseInt(br.readLine());
+			
+			num0 = 0;
+			num1 = 0;
+			
+			Arrays.fill(cache, -1);
+
+			cache[0] = 0;
+			cache[1] = 1;
+			cache[2] = 1;
+			
+			fibonacci(n);
+			
+			System.out.println(num0 + " " + num1);
+		}
+		
+	}
+	
+	public static int fibonacci(int num) {
+		// 기저: n까지 구함
+		if(num == 0) {
+			num0++;
+			return 0;
+		}
+		
+		if(num == 1) {
+			num1++;
+		}
+		
+		// 캐시가 있다면
+		if(cache[num] != -1) {
+			return cache[num];
+		}
+		
+		// 캐시가 없다면 계산
+		int ret = fibonacci(num-1) + fibonacci(num-2);
+		cache[num] = ret;
+		return cache[num];
+	}
+	
+//	public static int fibonacci(int n) {
+//		if(n == 0) {
+//			System.out.print("0");
+//			return 0;
+//		}
+//		else if(n == 1) {
+//			System.out.print("1");
+//			return 1;
+//		}
+//		else {
+//			return fibonacci(n-1) + fibonacci(n-2);
+//		}
+//	}
+
+}
