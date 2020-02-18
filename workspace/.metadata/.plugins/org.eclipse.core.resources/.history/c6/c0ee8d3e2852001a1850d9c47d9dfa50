@@ -1,0 +1,132 @@
+package boj;
+
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.StringTokenizer;
+
+//class MyQueue {
+//	int[] arr;
+//	int start;
+//	int end;
+//	
+//	public MyQueue(int size) {
+//		arr = new int[size];
+//		start = 0;
+//		end = 0;
+//	}
+//	
+//	public void push(int x) {
+//		arr[end++] = x;
+//	}
+//	
+//	public void pop() {
+//		if(start == end) {
+//			System.out.println(-1);
+//			return;
+//		}
+//		
+//		int x = arr[start++];
+//		System.out.println(x);
+//	}
+//	
+//	public void size() {
+//		System.out.println(end-start);
+//	}
+//	
+//	public void empty() {
+//		if(start == end) {
+//			System.out.println(1);
+//		}
+//		else {
+//			System.out.println(0);
+//		}
+//	}
+//	
+//	public void front() {
+//		if(start == end) {
+//			System.out.println(-1);
+//			return;
+//		}
+//		int x = arr[start];
+//		System.out.println(x);
+//	}
+//	
+//	public void back() {
+//		if(start == end) {
+//			System.out.println(-1);
+//			return;
+//		}
+//		int x = arr[end-1];
+//		System.out.println(x);
+//	}
+//}
+
+public class BOJ_18258 {
+
+	public static void main(String[] args) throws IOException {
+		// TODO Auto-generated method stub
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+		
+		int tc = Integer.parseInt(br.readLine());
+		
+		Queue<Integer> queue = new LinkedList<Integer>();
+		
+		for(int i=0; i<tc; i++) {
+			String str = br.readLine();
+			StringTokenizer stk = new StringTokenizer(str);
+			
+			String oper = stk.nextToken();
+			int lastElement = 0;
+			int n = 0;
+			
+			switch(oper) {
+			case "push":
+				lastElement = Integer.parseInt(stk.nextToken());
+				queue.offer(lastElement);
+				break;
+				
+			case "pop":
+				n = queue.isEmpty() ? -1 : queue.poll();
+				bw.write(String.valueOf(n));
+				bw.newLine();
+				bw.flush();
+				break;
+				
+			case "size":
+				n = queue.size();
+				bw.write(String.valueOf(n));
+				bw.newLine();
+				bw.flush();
+				break;
+				
+			case "empty":
+				n = queue.isEmpty() ? 1 : 0;
+				bw.write(String.valueOf(n));
+				bw.newLine();
+				bw.flush();
+				break;
+				
+			case "front":
+				n = queue.isEmpty() ? -1 : queue.peek();
+				bw.write(String.valueOf(n));
+				bw.newLine();
+				bw.flush();
+				break;
+				
+			case "back":
+				n = queue.isEmpty() ? -1 : lastElement;
+				bw.write(String.valueOf(n));
+				bw.newLine();
+				bw.flush();
+				break;	
+			}
+		}
+	}
+
+}
