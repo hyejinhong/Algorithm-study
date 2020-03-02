@@ -1,0 +1,51 @@
+package boj;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Arrays;
+
+public class BOJ_2156 {
+	
+	static int n;
+	static int[] wine = new int[10001];
+	static int[][] cache = new int[10001][3];
+	
+	public static void main(String[] args) throws IOException {
+		// TODO Auto-generated method stub
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		n = Integer.parseInt(br.readLine());
+		
+		for(int i=0; i<n; i++) {
+			wine[i] = Integer.parseInt(br.readLine());
+		}
+		
+		for(int[] row : cache) {
+			Arrays.fill(row, -1);
+		}
+		
+		System.out.println(drink(0, 1));
+	}
+	
+	// num번째 잔까지 고려했을 때 최대로 마실 수 있는 양 반환
+	public static int drink(int num, int count) {
+		// 기저
+		if(num == n) {
+			return 0;
+		}
+		if(count >= 3) {
+			return Integer.MIN_VALUE;
+		}
+		
+		// 캐시가 있다면
+		if(cache[num][count] != -1) {
+			return cache[num][count];
+		}
+		
+		// 캐시가 없다면
+		int ret = 0;
+		ret = Math.max(drink(num+1, count+1)+wine[num], drink(num+1, count+1));
+		cache[num][count] = ret;
+		return ret;
+	}
+}
