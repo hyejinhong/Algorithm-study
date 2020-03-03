@@ -45,7 +45,11 @@ public class BOJ_2667 {
 			}
 		}
 		System.out.println(village);
-		
+		System.out.println("정렬전");		
+		for(int i=0; i<village; i++) {
+			System.out.println(result.get(i));
+		}
+		System.out.println("정렬후");
 		Collections.sort(result);
 		for(int i=0; i<village; i++) {
 			System.out.println(result.get(i));
