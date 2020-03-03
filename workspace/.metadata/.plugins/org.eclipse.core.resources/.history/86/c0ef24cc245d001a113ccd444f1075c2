@@ -115,7 +115,7 @@ public class BOJ_2667 {
 					continue;
 				}
 				
-				if(!discovered[ny][nx] && map[ny][nx] != 0) {
+				if(!discovered[ny][nx] && visited[ny][nx]) {
 					q.add(new MyPoint(ny, nx));
 					discovered[ny][nx] = true;
 				}

@@ -79,7 +79,7 @@ public class BOJ_2667 {
 			for(int j=0; j<n; j++) {
 				if(map[i][j] != 0 && !visited[i][j]) {
 					bfs(i, j);
-//					result.add(count);
+					result.add(count);
 //					count = 0;
 					village++;
 				}
@@ -115,13 +115,12 @@ public class BOJ_2667 {
 					continue;
 				}
 				
-				if(!discovered[ny][nx] && map[ny][nx] != 0) {
+				if(!discovered[ny][nx]) {
 					q.add(new MyPoint(ny, nx));
 					discovered[ny][nx] = true;
 				}
 			}
 		}
-		result.add(count);
 		count = 0;
 	}
 }
