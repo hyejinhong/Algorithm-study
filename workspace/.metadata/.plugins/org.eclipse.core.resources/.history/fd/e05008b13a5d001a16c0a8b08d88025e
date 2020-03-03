@@ -1,7 +1,6 @@
 package datastructure;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.LinkedList;
 
 public class BFS {
@@ -21,7 +20,6 @@ public class BFS {
 		
 		ArrayList<Integer> result = bfs(0);
 		System.out.println(result.toString());
-		bfs2(0);
 	}
 	
 	public static ArrayList<Integer> bfs(int start) {
@@ -58,33 +56,5 @@ public class BFS {
 			}
 		}
 		return order;
-	}
-	
-	// 최단 경로를 계산하는 너비 우선 탐색
-	public static void bfs2(int start) {
-		int[] distance = new int[SIZE];
-		int[] parent = new int[SIZE]; // BFS 스패닝 트리에서 i의 부모의 번호
-		Arrays.fill(distance, -1);
-		Arrays.fill(parent, -1);
-		
-		// 방문할 정점 목록 큐
-		LinkedList<Integer> q = new LinkedList<>();
-		distance[start] = 0;
-		parent[start] = start;
-		q.add(start);
-		
-		while(!q.isEmpty()) {
-			int here = q.poll();
-			
-			for(int i=0; i<adj[here].length; i++) {
-				// 인접한 정점이고, 처음 발견한 것이면 방문 목록에 추가
-				if(adj[here][i] != 0 && distance[i] == -1) {
-					q.add(i);
-					distance[i] = distance[here] + 1;
-					parent[i] = here;
-				}
-			}
-		}
-		System.out.println(Arrays.toString(distance));
 	}
 }

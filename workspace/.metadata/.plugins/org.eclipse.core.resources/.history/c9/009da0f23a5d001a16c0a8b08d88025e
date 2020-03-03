@@ -19,8 +19,8 @@ public class BFS {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-		ArrayList<Integer> result = bfs(0);
-		System.out.println(result.toString());
+//		ArrayList<Integer> result = bfs(0);
+//		System.out.println(result.toString());
 		bfs2(0);
 	}
 	
@@ -78,7 +78,7 @@ public class BFS {
 			
 			for(int i=0; i<adj[here].length; i++) {
 				// 인접한 정점이고, 처음 발견한 것이면 방문 목록에 추가
-				if(adj[here][i] != 0 && distance[i] == -1) {
+				if(adj[here][i] != 0 && distance[i] != -1) {
 					q.add(i);
 					distance[i] = distance[here] + 1;
 					parent[i] = here;
