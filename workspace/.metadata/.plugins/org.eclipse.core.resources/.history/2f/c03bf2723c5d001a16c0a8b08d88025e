@@ -87,7 +87,7 @@ public class BFS {
 			}
 		}
 		
-		shortestPath(3, parent);
+		shortestPath(0, parent);
 	}
 	
 	// v로부터 시작점까지의 최단 경로를 계산한다.

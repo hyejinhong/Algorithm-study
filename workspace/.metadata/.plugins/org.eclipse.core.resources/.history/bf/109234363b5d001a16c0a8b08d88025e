@@ -2,7 +2,6 @@ package datastructure;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.LinkedList;
 
 public class BFS {
@@ -86,20 +85,7 @@ public class BFS {
 				}
 			}
 		}
-		
-		shortestPath(3, parent);
-	}
-	
-	// v로부터 시작점까지의 최단 경로를 계산한다.
-	public static LinkedList<Integer> shortestPath(int v, int[] parent) {
-		LinkedList<Integer> path = new LinkedList<>();
-		
-		while(parent[v] != v) {
-			v = parent[v];
-			path.add(v);
-		}
-		Collections.reverse(path);
-		System.out.println(path.toString());
-		return path;
+		System.out.println(Arrays.toString(distance));
+		System.out.println(Arrays.toString(parent))
 	}
 }

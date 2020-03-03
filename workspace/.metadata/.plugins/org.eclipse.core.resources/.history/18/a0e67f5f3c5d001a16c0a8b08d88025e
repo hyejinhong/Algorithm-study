@@ -86,20 +86,18 @@ public class BFS {
 				}
 			}
 		}
-		
-		shortestPath(3, parent);
+		System.out.println(Arrays.toString(distance));
 	}
 	
 	// v로부터 시작점까지의 최단 경로를 계산한다.
-	public static LinkedList<Integer> shortestPath(int v, int[] parent) {
+	public static LinkedList<Integer> shortestPath(int v, LinkedList<Integer> parent) {
 		LinkedList<Integer> path = new LinkedList<>();
 		
-		while(parent[v] != v) {
-			v = parent[v];
+		while(parent.get(v) != v) {
+			v = parent.get(v);
 			path.add(v);
 		}
 		Collections.reverse(path);
-		System.out.println(path.toString());
 		return path;
 	}
 }
