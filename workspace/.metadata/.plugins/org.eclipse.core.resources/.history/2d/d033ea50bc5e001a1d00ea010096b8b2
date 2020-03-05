@@ -115,7 +115,6 @@ public class BOJ_1012 {
 		
 		while(!q.isEmpty()) {
 			Point here = q.poll();
-			visited[here.x][here.y] = true;
 			
 			for(int i=0; i<4; i++) {
 				int nx = here.x + dx[i];
