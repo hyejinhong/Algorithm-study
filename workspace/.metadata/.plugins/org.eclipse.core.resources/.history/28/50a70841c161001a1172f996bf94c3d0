@@ -1,0 +1,80 @@
+package boj;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.LinkedList;
+import java.util.StringTokenizer;
+
+public class BOJ_7569 {
+
+	static int m;
+	static int n;
+	static int h;
+	static int[][][] map = new int[100][100][100];
+	
+	static int[] dy = { 0, 0, 0, 0, 1, -1 };
+	static int[] dx = { 0, 0, 1, -1, 0, 0 };
+	static int[] dz = { 1, -1, 0, 0, 0, 0 };
+	
+	public static void main(String[] args) throws IOException {
+		// TODO Auto-generated method stub
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		StringTokenizer stk = new StringTokenizer(br.readLine());
+		
+		m = Integer.parseInt(stk.nextToken());
+		n = Integer.parseInt(stk.nextToken());
+		h = Integer.parseInt(stk.nextToken());
+		
+		for(int k=0; k<h; k++) {
+			for(int i=0; i<n; i++) {
+				stk = new StringTokenizer(br.readLine());
+				for(int j=0; j<m; j++) {
+					map[k][i][j] = Integer.parseInt(stk.nextToken());
+				}
+			}
+		}
+
+		if(isAllRiped()) {
+			System.out.println(0);
+			return;
+		}
+		
+		bfs();
+	}
+	
+	public static void bfs() {
+		boolean[][][] discovered = new boolean[100][100][100];
+		LinkedList<Integer> xq = new LinkedList<Integer>();
+		LinkedList<Integer> yq = new LinkedList<Integer>();
+		LinkedList<Integer> zq = new LinkedList<Integer>();
+		
+		for(int k=0; k<h; k++) {
+			for(int i=0; i<n; i++) {
+				for(int j=0; j<m; j++) {
+					if(map[k][i][j] == 1) {
+						xq.add(j);
+						yq.add(i);
+						zq.add(k);
+						discovered[k][i][j] = true;
+					}
+				}
+			}
+		}
+
+		
+	}
+	
+	public static boolean isAllRiped() {
+		for(int k=0; k<h; k++) {
+			for(int i=0; i<n; i++) {
+				for(int j=0; j<m; j++) {
+					if(map[k][i][j] == 0) {
+						return false;
+					}
+				}
+			}
+		}
+		return true;
+	}
+}
