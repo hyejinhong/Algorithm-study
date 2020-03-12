@@ -1,0 +1,99 @@
+package algospot;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.PriorityQueue;
+import java.util.StringTokenizer;
+
+public class Routing {
+
+	static class Edge implements Comparable<Edge> {
+		int to;
+		double noise;
+		
+		Edge(int to, double noise) {
+			this.to = to;
+			this.noise = noise;
+		}
+
+		@Override
+		public int compareTo(Edge o) {
+			// TODO Auto-generated method stub
+			if(this.noise > o.noise) {
+				return 1;
+			}
+			else if(this.noise < o.noise){
+				return -1;
+			}
+			return 0;
+		}
+	}
+	
+	static int n;
+	static int m;
+	static ArrayList<Edge>[] adj = new ArrayList[10000];
+	static final Double MAX = Double.MAX_VALUE;
+	
+	public static void main(String[] args) throws IOException {
+		// TODO Auto-generated method stub
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		int c = Integer.parseInt(br.readLine());
+		
+		for(int test=1; test<=c; test++) {
+			StringTokenizer stk = new StringTokenizer(br.readLine());
+			n = Integer.parseInt(stk.nextToken());
+			m = Integer.parseInt(stk.nextToken());
+			
+			for(int i=0; i<n; i++) {
+				adj[i] = new ArrayList<Edge>();
+			}
+			
+			for(int i=0; i<m; i++) {
+				stk = new StringTokenizer(br.readLine());
+				int u = Integer.parseInt(stk.nextToken());
+				int v = Integer.parseInt(stk.nextToken());
+				double w = Double.parseDouble(stk.nextToken());
+				
+				adj[u].add(new Edge(v, w));
+				adj[v].add(new Edge(u, w));
+			}
+			
+			dijkstra(0);
+		}
+	}
+	
+	public static void dijkstra(int start) {
+		PriorityQueue<Edge> q = new PriorityQueue<Edge>();
+		double[] dist = new double[n];
+		Arrays.fill(dist, MAX);
+		
+		dist[start] = 1.0;
+		q.add(new Edge(start, dist[start]));
+		
+		while(!q.isEmpty()) {
+			Edge e = q.poll();
+			int here = e.to;
+			double noise = e.noise;
+			
+			// 꺼낸 노이즈가 저장된 최솟값보다 크면 그냥 스킵
+			if(noise > dist[here]) {
+				continue;
+			}
+			
+			// 인접한 정점을 검사
+			for(int i=0; i<adj[here].size(); i++) {
+				int there = adj[here].get(i).to;
+				double value = adj[here].get(i).noise;
+				
+				if(dist[there] > dist[here] * value) {
+					dist[there] = dist[here] * value;
+					q.add(new Edge(there, dist[there]));
+				}
+			}
+		}
+		System.out.println(dist[n-1]);
+	}
+}
