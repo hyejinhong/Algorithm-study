@@ -7,23 +7,23 @@ import java.util.Arrays;
 import java.util.PriorityQueue;
 import java.util.StringTokenizer;
 
+class Pair implements Comparable<Pair>{
+	int index;
+	int distance;
+	
+	Pair(int index, int distance) {
+		this.index = index;
+		this.distance = distance;
+	}
+
+	@Override
+	public int compareTo(Pair o) {
+		// TODO Auto-generated method stub
+		return this.distance - o.distance;
+	}
+}
 
 public class Dijkstra {
-	static class Pair implements Comparable<Pair>{
-		int index;
-		int distance;
-		
-		Pair(int index, int distance) {
-			this.index = index;
-			this.distance = distance;
-		}
-
-		@Override
-		public int compareTo(Pair o) {
-			// TODO Auto-generated method stub
-			return this.distance - o.distance;
-		}
-	}
 
 	static int[][] adj;
 	static int[] distance;
@@ -60,7 +60,6 @@ public class Dijkstra {
 		}
 	}
 	
-	// 우선순위 큐를 사용하는 다익스트라 알고리즘
 	public static void dijkstra(int start) {
 		PriorityQueue<Pair> q = new PriorityQueue<Pair>();
 		distance[start] = 0;
@@ -88,50 +87,5 @@ public class Dijkstra {
 		for(int i=0; i<v; i++) {
 			System.out.print(distance[i] + " ");
 		}
-	}
-	
-	
-	// 우선순위 큐를 사용하지 않는 다익스트라 알고리즘
-	public static void dijkstra2(int start) {
-		int[] distance = new int[v];
-		Arrays.fill(distance, MAX);
-		boolean[] visited = new boolean[v];
-		
-		distance[start] = 0;
-		visited[start] = true;
-		
-		while(true) {
-			int closest = MAX;
-			int here = start;
-			
-			// 아직 방문하지 않은 정점 중 가장 가까운 정점을 찾는다			
-			for(int i=0; i<v; i++) {
-				if(distance[i] < closest && !visited[i]) {
-					here = i;
-					closest = distance[i];
-				}
-			}
-			
-			if(closest == MAX) {
-				break;
-			}
-			
-			// 찾은 정점을 방문한다
-			visited[here] = true;
-			
-			// 찾은 정점을 통해서 갈 수 있는 정점의 가중치를 갱신한다
-			for(int i=0; i<v; i++) {
-				// 방문하지 않고, 인접해있고, 가중치가 지금보다 작으면 갱신
-				if(!visited[i] && adj[here][i] != MAX && 
-						distance[i] > distance[here] + adj[here][i]) {
-					distance[i] = distance[here] + adj[here][i];
-				}
-			}
-		}
-		
-		for(int i=0; i<v; i++) {
-			System.out.print(distance[i] + " ");
-		}
-
 	}
 }
