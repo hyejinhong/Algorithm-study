@@ -1,0 +1,33 @@
+package algospot;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
+
+public class Routing {
+	
+	static int n;
+	static int m;
+	static int[][] graph = new int[10000][10000];
+
+	public static void main(String[] args) throws IOException {
+		// TODO Auto-generated method stub
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		int c = Integer.parseInt(br.readLine());
+
+		for(int test=1; test<=c; test++) {
+			for(int i=0; i<m; i++) {
+				StringTokenizer stk = new StringTokenizer(br.readLine());
+				
+				int a = Integer.parseInt(stk.nextToken());
+				int b = Integer.parseInt(stk.nextToken());
+				int w = Integer.parseInt(stk.nextToken());
+				
+				graph[a][b] = w;
+				graph[b][a] = w;
+			}
+		}
+	}
+
+}
