@@ -1,0 +1,56 @@
+package boj;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.StringTokenizer;
+
+public class BOJ_14501 {
+
+	static int n;
+	static int[] t = new int[16];
+	static int[] p = new int[16];
+	
+	static boolean[] avail = new boolean[16];
+//	static boolean[] selected = new boolean[16];
+	static ArrayList<Integer> selected = new ArrayList<>();
+	
+	public static void main(String[] args) throws IOException {
+		// TODO Auto-generated method stub
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		n = Integer.parseInt(br.readLine());
+		
+		for(int i=1; i<=n; i++) {
+			StringTokenizer stk = new StringTokenizer(br.readLine());
+			t[i] = Integer.parseInt(stk.nextToken());
+			p[i] = Integer.parseInt(stk.nextToken());
+		}
+	}
+	
+	public static void schedule(int day) {
+		// 기저
+		if(day == n+1) {
+			return;
+		}
+		System.out.println("day: " + day);
+		// 오늘 상담을 한다
+		avail[day] = true;
+		
+		// 상담 못하는 날 설정
+		int days = t[day];
+		for(int i=1; i<days; i++) {
+			avail[day+i] = false;
+		}
+		
+		// 모든 경우의 수 탐색
+		for(int i=day+1; i<=n; i++) {
+			// 상담이 가능한 날이면
+			if(avail[i]) {
+				selected.add(i);
+				schedule(i);
+				selected.remove(selected.size()-1);
+			}
+		}
+	}
+}
