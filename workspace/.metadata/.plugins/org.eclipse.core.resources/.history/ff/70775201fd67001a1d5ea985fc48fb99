@@ -1,0 +1,75 @@
+package boj;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.Collections;
+
+public class BOJ_2309 {
+	
+	static int[] h = new int[9];
+	static boolean[] check = new boolean[9];
+	static ArrayList<Integer> selected = new ArrayList<>();
+	
+	static int count = 0;
+	
+	public static void main(String[] args) throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		
+		for(int i=0; i<9; i++) {
+			h[i] = Integer.parseInt(br.readLine());
+		}
+		
+		pick();
+	}
+	
+	public static void pick() {
+		// ±âÀú: 7¸í »ÌÀ½
+		if(selected.size() == 7) {
+			// ´äÀÓ -> Ãâ·Â
+			if(calculate() == 100) {
+				count++;
+				if(count == 1) {
+					System.out.println();
+				}
+				Collections.sort(selected);
+//				System.out.println(selected.toString());
+				for(int i=0; i<selected.size(); i++) {
+					System.out.println(selected.get(i));
+				}
+				System.out.println("*********************");
+				return;
+			}
+			// ´äÀÌ ¾Æ´Ô
+//			else {
+//				return;
+//			}
+		}
+		
+		for(int i=0; i<9; i++) {
+			// ¾ÆÁ÷ ¾È»ÌÀº ³­ÀïÀÌ¸¦ »Ì´Â´Ù
+			if(!check[i]) {
+				check[i] = true;
+				selected.add(h[i]);
+				
+				pick(); // ±×´ÙÀ½ »Ì¾Æ
+				
+				check[i] = false;
+				selected.remove(selected.size()-1);
+				
+			}
+		}
+	}
+	
+	// »ÌÀº 7¸í Å° °è»ê
+	public static int calculate() {
+		int sum = 0;
+		for(int i=0; i<selected.size(); i++) {
+			sum += selected.get(i);
+		}
+//		System.out.println("sum: "+sum);
+//		System.out.println("*******************");
+		return sum;
+	}
+}
