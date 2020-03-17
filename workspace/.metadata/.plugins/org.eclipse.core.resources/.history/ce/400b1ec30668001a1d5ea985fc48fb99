@@ -34,16 +34,13 @@ public class BOJ_11403 {
 	}
 	
 	public static void solveDfs() {
+		
+		
 		for(int i=0; i<n; i++) {
 			dfs(i);
-			for(int j=0; j<n; j++) {
-				if(visited[j]) {
-					result[i][j] = 1;
-				}
-			}
-			Arrays.fill(visited, false);
 		}
 		
+		System.out.println(Arrays.toString(visited));
 		// print
 		for(int i=0; i<n; i++) {
 			for(int j=0; j<n; j++) {
@@ -54,9 +51,10 @@ public class BOJ_11403 {
 	}
 	
 	public static void dfs(int start) {
+		 visited[start] = true;
+	
 		 for(int i=0; i<n; i++) {
 			 if(map[start][i] != 0 && !visited[i]) {
-				 visited[i] = true;
 				 dfs(i);
 			 }
 		 }

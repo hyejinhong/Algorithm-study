@@ -3,7 +3,6 @@ package boj;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.StringTokenizer;
@@ -15,7 +14,6 @@ public class BOJ_11403 {
 	
 	// for dfs
 	static boolean[] visited = new boolean[100];
-	static int[][] result = new int[100][100];
 	
 	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
@@ -34,14 +32,19 @@ public class BOJ_11403 {
 	}
 	
 	public static void solveDfs() {
+		int[][] result = new int[n][n];
+		
 		for(int i=0; i<n; i++) {
-			dfs(i);
 			for(int j=0; j<n; j++) {
-				if(visited[j]) {
+				// 갈 수 있으면
+				if(dfs(i, j, false)) {
 					result[i][j] = 1;
 				}
+				// 갈 수 없으면
+				else {
+					result[i][j] = 0;
+				}
 			}
-			Arrays.fill(visited, false);
 		}
 		
 		// print
@@ -53,13 +56,26 @@ public class BOJ_11403 {
 		}
 	}
 	
-	public static void dfs(int start) {
-		 for(int i=0; i<n; i++) {
-			 if(map[start][i] != 0 && !visited[i]) {
-				 visited[i] = true;
-				 dfs(i);
-			 }
-		 }
+	// start에서 시작해서 end로 가는 경로를 찾아보자..
+	// flag는 자기 자신을 바로 찾는 경우 방지를 위한 변수
+	public static boolean dfs(int start, int end, boolean flag) {
+		// 방향그래프이므로 나에게 돌아오는 경로가 있을때 나를 방문한 것으로 간주해야함
+		// visited[start] = true;
+		
+		// 여기 도착지임
+		if(flag && start == end) {
+			return true;
+		}
+		
+		for(int i=0; i<n; i++) {
+			// 인접해있고 안 가봤으면 바로 방문
+			if(map[start][i] == 1 && !visited[i]) {
+				dfs(i, end, true);
+			}
+		}
+		
+		// 못 감
+		return false;
 	}
 	
 	public static void solveBfs() {
