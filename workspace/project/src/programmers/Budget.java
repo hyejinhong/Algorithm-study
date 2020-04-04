@@ -21,11 +21,7 @@ public class Budget {
 		int left = 0;
 		int right = budgets[budgets.length-1];
 		
-		while(true) {
-			if(left > right) {
-				break;
-			}
-			
+		while(left < right) {
 			int mid = (left+right) / 2;
 			
 			long sum = 0;
