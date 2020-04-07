@@ -123,5 +123,30 @@ $RECYCLE.BIN/
 *.lnk
 
 # End of https://www.gitignore.io/api/java,windows,eclipse
-workspace/.metadata/.plugins/org.eclipse.jdt.ui/jdt-images/5.png
-workspace/.metadata/.plugins/org.eclipse.jdt.ui/jdt-images/5.png
+workspace/project/src/programmers/LineQ1.java
+workspace/project/src/programmers/LineQ2.java
+workspace/project/src/programmers/LineQ3.java
+workspace/project/src/programmers/LineQ4.java
+workspace/project/src/programmers/LineQ5.java
+workspace/project/src/programmers/LineQ6.java
+workspace/.metadata/version.ini
+workspace/.metadata/.plugins/org.eclipse.jdt.ui/QualifiedTypeNameHistory.xml
+workspace/.metadata/.plugins/org.eclipse.jdt.core/savedIndexNames.txt
+workspace/.metadata/.plugins/org.eclipse.jdt.core/3581163120.index
+workspace/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi
+workspace/.metadata/.plugins/org.eclipse.debug.ui/launchConfigurationHistory.xml
+workspace/.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.jdt.ui.prefs
+workspace/.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.jdt.debug.ui.prefs
+workspace/.metadata/.plugins/org.eclipse.core.resources/.safetable/org.eclipse.core.resources
+workspace/.metadata/.plugins/org.eclipse.core.resources/.root/.markers.snap
+workspace/.metadata/.plugins/org.eclipse.core.resources/.projects/project/.syncinfo.snap
+workspace/.metadata/.plugins/org.eclipse.core.resources/.projects/project/.markers.snap
+workspace/.metadata/.plugins/org.eclipse.core.resources/.projects/project/.markers
+workspace/.metadata/.plugins/org.eclipse.core.resources/.projects/project/.indexes/e4/bd/history.index
+*.ini
+*.xml
+*.index
+*.xmi
+*.prefs
+*.snap
+workspace/.metadata/.plugins/org.eclipse.core.resources/.projects/project/.markers
