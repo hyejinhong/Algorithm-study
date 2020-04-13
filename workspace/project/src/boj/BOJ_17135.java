@@ -20,13 +20,7 @@ public class BOJ_17135 {
 			this.id = id;
 			this.y = y;
 			this.x = x;
-		}
-		
-		@Override
-		public String toString() {
-			// TODO Auto-generated method stub
-			return "("+y+", "+x+")";
-		}
+		}	
 	}
 	
 	static int n, m, d;
@@ -61,11 +55,8 @@ public class BOJ_17135 {
 		// 기저: 3자리 다 뽑음
 		if(picked.size() == 3) {
 			// 턴 시작
-			System.out.println(picked.toString());
-			print(map);
 			int count = attack();
 			result = Math.max(result, count);
-			System.out.println("ㅁㅇㅁㅇㅁㅇㅁㅇㅁㅇㅁㅇㅁㅇㅁㅇ");
 			return;
 		}
 		
@@ -115,7 +106,6 @@ public class BOJ_17135 {
 				// 공격
 				Enemy e = selectEnemy(picked.get(i), enemies);
 				if(e != null) {
-					System.out.println("("+e.y+", "+e.x+") 공격");
 					copy[e.y][e.x] = 0;
 //					enemies.remove(e); // 같은 적 공격할 수도 있으니 여기서 제거하면 안됨
 					if(!aList.contains(e)) {
@@ -131,22 +121,7 @@ public class BOJ_17135 {
 				enemies.remove(attacked);
 			}
 			
-			System.out.println("공격");
-			print(copy);
-			System.out.println("************************");
 			// 적 이동
-			for(int[] row : copy) {
-				Arrays.fill(row, 0);
-			}
-			
-			for(int i=0; i<m; i++ ) {
-				copy[n][i] = 2;
-			}
-			for(int i=0; i<picked.size(); i++) {
-				int index = picked.get(i);
-				copy[n][index] = 3; // 궁수있는 칸은 3으로 함
-			}
-
 			Enemy[] removeList = new Enemy[m];
 			int rIndex = 0;
 			for(int i=0; i<enemies.size(); i++) {
@@ -167,15 +142,6 @@ public class BOJ_17135 {
 			for(int i=0; i<m; i++) {
 				enemies.remove(removeList[i]);
 			}
-			
-			System.out.println("이동");
-			print(copy);
-			System.out.println("count: "+count);
-			System.out.println("Enemy 현황");
-			for(int i=0; i<enemies.size(); i++) {
-				System.out.println(enemies.get(i).toString());
-			}
-			System.out.println("************************");
 		}
 		return count;
 	}
@@ -187,8 +153,6 @@ public class BOJ_17135 {
 		
 		for(int i=0; i<enemies.size(); i++) {
 			Enemy e = enemies.get(i);
-			int sy = e.y;
-			int sx = e.x;
 			int dist = Math.abs(n-e.y) + Math.abs(x-e.x);
 			
 			if(min > dist && dist <= d) {
@@ -200,17 +164,8 @@ public class BOJ_17135 {
 			else if(min == dist && dist <= d) {
 				ret = savedX > e.x ? e : ret;
 			}
-		}
-		
+		}	
 		return ret;
 	}
 	
-	public static void print(int[][] copy) {
-		for(int i=0; i<=n; i++) {
-			for(int j=0; j<m; j++) {
-				System.out.print(copy[i][j] + " ");
-			}
-			System.out.println();
-		}
-	}
 }
