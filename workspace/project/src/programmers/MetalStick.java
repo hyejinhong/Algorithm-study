@@ -10,11 +10,6 @@ public class MetalStick {
 		// TODO Auto-generated method stub
 		String arrangement = "((()()))";
 		
-//		for(int i=0; i<5; i++) {
-//			arrangement += "()";
-//		}
-//		arrangement += ")";
-//		System.out.println(arrangement);
 		System.out.println(solution(arrangement));
 	}
 	
