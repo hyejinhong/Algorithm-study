@@ -19,8 +19,6 @@ public class VisitLength {
 			return "("+this.y+", "+this.x +")";
 		}
 	}
-	
-	static int[][] map = new int[11][11];
 	static HashMap<String, Integer> hash = new HashMap<>();
 	
 	public static void main(String[] args) {
@@ -32,12 +30,6 @@ public class VisitLength {
 
 	public static int solution(String dirs) {
 		Point start = new Point(5, 5);
-		// 객체를 미리 다 만들어놔
-		for(int i=0; i<11; i++) {
-			for(int j=0; j<11; j++) {
-				
-			}
-		}
 		
 		// dirs 실행
 		for(int i=0; i<dirs.length(); i++) {
