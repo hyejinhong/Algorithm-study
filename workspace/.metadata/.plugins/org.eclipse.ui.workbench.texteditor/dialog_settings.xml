@@ -8,6 +8,7 @@
 		<item key="wrap" value="true"/>
 		<item key="wholeword" value="false"/>
 		<list key="findhistory">
+			<item value="400"/>
 			<item value="#10"/>
 			<item value="#1"/>
 			<item value="]"/>
@@ -22,7 +23,6 @@
 			<item value="100"/>
 			<item value="weight"/>
 			<item value="series"/>
-			<item value="path"/>
 		</list>
 		<list key="replacehistory">
 			<item value="}"/>
