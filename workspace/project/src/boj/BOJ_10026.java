@@ -37,10 +37,10 @@ public class BOJ_10026 {
 			}
 		}
 		
-		solve();
+		solveDFS();
 	}
 	
-	public static void solve() {
+	public static void solveBFS() {
 		int r1 = 0;
 		for(int i=0; i<n; i++) {
 			for(int j=0; j<n; j++) {
@@ -70,6 +70,38 @@ public class BOJ_10026 {
 
 		System.out.println(r1 + " " + r2);
 	}
+	
+	public static void solveDFS() {
+		int r1 = 0;
+		for(int i=0; i<n; i++) {
+			for(int j=0; j<n; j++) {
+				if(!visited[i][j]) {
+					dfs(new Point(i, j), map[i][j]);
+					r1++;
+				}
+			}
+		}
+		
+		// visited 초기화
+		for(boolean[] row : visited) {
+			Arrays.fill(row, false);
+		}
+		
+		setMap();
+		
+		int r2 = 0;
+		for(int i=0; i<n; i++) {
+			for(int j=0; j<n; j++) {
+				if(!visited[i][j]) {
+					dfs(new Point(i, j), map[i][j]);
+					r2++;
+				}
+			}
+		}
+
+		System.out.println(r1 + " " + r2);
+	}
+	
 	
 	// 적록색약의 경우 R, G 같은 색으로 set
 	public static void setMap() {
@@ -108,6 +140,26 @@ public class BOJ_10026 {
 					visited[ny][nx] = true;
 				}
 			}
+		}
+	}
+	
+	public static void dfs(Point start, char color) {
+		visited[start.y][start.x] = true;
+		
+		for(int i=0; i<4; i++) {
+			int ny = start.y + dy[i];
+			int nx = start.x + dx[i];
+			
+			// range check
+			if(ny < 0 || nx < 0 || ny >= n || nx >= n) {
+				continue;
+			}
+			
+			// 색이 같고, 아직 방문 안함
+			if(map[ny][nx] == color && !visited[ny][nx]) {
+				dfs(new Point(ny, nx), color);
+			}
+
 		}
 	}
 	
