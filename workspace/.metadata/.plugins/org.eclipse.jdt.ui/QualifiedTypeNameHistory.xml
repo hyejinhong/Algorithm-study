@@ -22,7 +22,6 @@
 <fullyQualifiedTypeName name="boj.BOJ_1966.Document"/>
 <fullyQualifiedTypeName name="boj.BOJ_15651"/>
 <fullyQualifiedTypeName name="programmers.LineQ1"/>
-<fullyQualifiedTypeName name="java.lang.StringBuilder"/>
 <fullyQualifiedTypeName name="boj.BOJ_17135.Enemy"/>
 <fullyQualifiedTypeName name="boj.BOJ_17135"/>
 <fullyQualifiedTypeName name="java.util.HashSet"/>
@@ -54,10 +53,11 @@
 <fullyQualifiedTypeName name="boj.BOJ_15686.Home"/>
 <fullyQualifiedTypeName name="java.util.Queue"/>
 <fullyQualifiedTypeName name="java.util.LinkedList"/>
-<fullyQualifiedTypeName name="java.util.Arrays"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="java.io.BufferedReader"/>
 <fullyQualifiedTypeName name="java.io.InputStreamReader"/>
 <fullyQualifiedTypeName name="java.lang.Exception"/>
 <fullyQualifiedTypeName name="java.util.StringTokenizer"/>
+<fullyQualifiedTypeName name="java.util.Arrays"/>
+<fullyQualifiedTypeName name="java.lang.StringBuilder"/>
 </qualifiedTypeNameHistroy>
