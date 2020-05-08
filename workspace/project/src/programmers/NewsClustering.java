@@ -38,10 +38,6 @@ public class NewsClustering {
 		HashMap<String, Integer> inter = getIntersection(map1, map2);
 		HashMap<String, Integer> union = getUnion(map1, map2);
 		
-		System.out.println("교집합: "+inter);
-		System.out.println("합집합: " +union);
-
-		
 		int answer = (int) (calculate(inter, union) * NUMBER);
 		return answer;
 	}
