@@ -48,7 +48,7 @@
 		<item key="org.eclipse.jdt.internal.ui.text.JavaOutlineInformationControlDIALOG_USE_PERSISTED_LOCATION" value="false"/>
 	</section>
 	<section name="SourceActionDialog.constructors">
-		<item key="VisibilityModifier" value="1"/>
+		<item key="VisibilityModifier" value="0"/>
 		<item key="FinalModifier" value="false"/>
 		<item key="SynchronizedModifier" value="false"/>
 		<item key="Comments" value="false"/>
