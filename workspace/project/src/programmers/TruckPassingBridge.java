@@ -60,6 +60,7 @@ public class TruckPassingBridge {
 
 		}
 		
+		// 남아있는 트럭 처리
 		while(!passing.isEmpty()) {
 			time++;
 			move(passing);
