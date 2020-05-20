@@ -14,7 +14,7 @@ public class MakingLargeNumber {
 	public static String solution(String number, int k) {
 		StringBuilder sb = new StringBuilder(number);
 		
-		// 내 뒤에 있는 숫자가 나보다 크면 없앤다.
+		// 내 뒤에 있는 숫자가 나보다 크면 나를 없앤다.
 		int count = 0;
 		int index = 1;
         
