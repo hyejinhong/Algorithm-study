@@ -26,7 +26,7 @@ public class RamenFactory {
 				q.add(supplies[index++]);
 			}
 			
-			// 공급받음
+			// 공급받음 - 가장 많은 밀가루 양 공급받음 -> 밀가루 공급받는 횟수가 최소가 됨.
 			if(stock == 0) {
 				stock += q.poll();
 				count++;
