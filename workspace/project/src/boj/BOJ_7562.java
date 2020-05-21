@@ -28,20 +28,32 @@ public class BOJ_7562 {
 	
 	public static void main(String[] args) throws Exception {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		int t = Integer.parseInt(br.readLine());
-		for(int test=1; test<=t; test++) {
-			n = Integer.parseInt(br.readLine());
-			
-			StringTokenizer stk = new StringTokenizer(br.readLine());
-			int startY = Integer.parseInt(stk.nextToken());
-			int startX = Integer.parseInt(stk.nextToken());
-			
-			stk = new StringTokenizer(br.readLine());
-			destY = Integer.parseInt(stk.nextToken());
-			destX = Integer.parseInt(stk.nextToken());
-			
-			System.out.println(bfs(new Point(startY, startX)));
-		}
+		
+		String str1 = "Hello! Java World";
+		int index = str1.indexOf("Java");
+		int size = "Java".length();
+		System.out.println(index); // 7
+		
+		String str2 = str1.substring(index, index+size);
+		System.out.println(str2); // Java
+		str2 = str2.toLowerCase();
+		System.out.println(str2); // java
+		str2 = str2.replace('a', 'A');
+		System.out.println(str2); // jAvA
+		//		int t = Integer.parseInt(br.readLine());
+//		for(int test=1; test<=t; test++) {
+//			n = Integer.parseInt(br.readLine());
+//			
+//			StringTokenizer stk = new StringTokenizer(br.readLine());
+//			int startY = Integer.parseInt(stk.nextToken());
+//			int startX = Integer.parseInt(stk.nextToken());
+//			
+//			stk = new StringTokenizer(br.readLine());
+//			destY = Integer.parseInt(stk.nextToken());
+//			destX = Integer.parseInt(stk.nextToken());
+//			
+//			System.out.println(bfs(new Point(startY, startX)));
+//		}
 	}
 	
 	public static int bfs(Point start) {
