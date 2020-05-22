@@ -40,4 +40,8 @@
 		<item key="DIALOG_X_ORIGIN" value="149"/>
 		<item key="DIALOG_Y_ORIGIN" value="162"/>
 	</section>
+	<section name="org.eclipse.ui.texteditor.GotoLineAction$GotoLineDialog_dialogBounds">
+		<item key="DIALOG_X_ORIGIN" value="211"/>
+		<item key="DIALOG_Y_ORIGIN" value="357"/>
+	</section>
 </section>
