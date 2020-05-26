@@ -32,7 +32,6 @@ public class IHateSameNumbers {
             answer[i] = list.get(i);
         }
 
-
         return answer;
 	}
 }
