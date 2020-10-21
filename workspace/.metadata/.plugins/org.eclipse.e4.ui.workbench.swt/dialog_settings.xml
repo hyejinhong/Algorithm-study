@@ -3,10 +3,10 @@
 	<section name="ShowViewDialog">
 		<item key="DIALOG_WIDTH" value="400"/>
 		<item key="DIALOG_FONT_NAME" value="1|맑은 고딕|9.0|0|WINDOWS|1|-15|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕"/>
-		<item key="ShowViewDialog.STORE_SELECTED_VIEW_ID" value="org.eclipse.jdt.ui.PackageExplorer"/>
+		<item key="ShowViewDialog.STORE_SELECTED_VIEW_ID" value="org.eclipse.jdt.ui.JavadocView"/>
 		<item key="DIALOG_HEIGHT" value="479"/>
-		<item key="DIALOG_X_ORIGIN" value="568"/>
-		<item key="DIALOG_Y_ORIGIN" value="205"/>
+		<item key="DIALOG_X_ORIGIN" value="112"/>
+		<item key="DIALOG_Y_ORIGIN" value="238"/>
 		<list key="ShowViewDialog.STORE_EXPANDED_CATEGORIES_ID">
 			<item value="Java"/>
 		</list>
