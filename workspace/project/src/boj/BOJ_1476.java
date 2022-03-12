@@ -27,9 +27,6 @@ public class BOJ_1476 {
 			int nowS = i % STD_S == 0 ? STD_S : i % STD_S;
 			int nowM = i % STD_M == 0 ? STD_M : i % STD_M;
 			
-			System.out.println(nowE);
-			System.out.println(nowS);
-			System.out.println(nowM);
 			// Çæ! ¸ÂÀ½!
 			if(nowE == e && nowS == s && nowM == m) {
 				System.out.println(i);
