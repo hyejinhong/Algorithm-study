@@ -17,6 +17,7 @@
 		<item key="WizardProjectsImportPage.STORE_CLOSE_CREATED_PROJECTS_ID" value="false"/>
 		<item key="WizardProjectsImportPage.STORE_HIDE_CONFLICTING_PROJECTS_ID" value="false"/>
 		<list key="WizardProjectsImportPage.STORE_DIRECTORIES">
+			<item value="C:\Users\user\eclipse-workspace\Algorithm-study\workspace\project"/>
 			<item value="C:\github\Algorithm-study\workspace\project"/>
 		</list>
 		<list key="WizardProjectsImportPage.STORE_ARCHIVES">
