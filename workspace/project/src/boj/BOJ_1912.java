@@ -34,17 +34,17 @@ public class BOJ_1912 {
 	}
 	
 	public static int solve(int index) {
-		// ±âÀú
+		// ê¸°ì €
 		if(index == 0) {
 			return arr[0];
 		}
 		
-		// Ä³½Ã°¡ ÀÖ´Ù¸é
+		// ìºì‹œê°€ ìˆë‹¤ë©´
 		if(cache[index] != -1) {
 			return cache[index];
 		}
 		
-		// Ä³½Ã°¡ ¾ø´Ù¸é
+		// ìºì‹œê°€ ì—†ë‹¤ë©´
 		int ret = 0;
 		ret = Math.max(solve(index-1)+arr[index], arr[index]);
 		cache[index] = ret;

@@ -56,21 +56,21 @@ public class BOJ_1966 {
 			Document d = q.poll();
 			
 			for(int i=0; i<q.size(); i++) {
-				// ´õ Áß¿äµµ ³ôÀº ¹®¼­°¡ ÀÖ´Ù
+				// ë” ì¤‘ìš”ë„ ë†’ì€ ë¬¸ì„œê°€ ìžˆë‹¤
 				if(d.value < q.get(i).value) {
-					// Å¥ ¸Ç µÚ¿¡ Àç¹èÄ¡
+					// í ë§¨ ë’¤ì— ìž¬ë°°ì¹˜
 					q.offer(d);
-					flag = false; // ÀÌ¹ø ÅÏ¿¡ ÀÎ¼â¸¦ ÇÏ´ÂÁö
+					flag = false; // ì´ë²ˆ í„´ì— ì¸ì‡„ë¥¼ í•˜ëŠ”ì§€
 					break;
 				}
 			}
 			
-			// ÀÎ¼â¸¦ ¾ÈÇÑ´Ù¸é
+			// ì¸ì‡„ë¥¼ ì•ˆí•œë‹¤ë©´
 			if(!flag) {
 				flag = true;
 				continue;
 			}
-			// ÀÎ¼â¸¦ ÇÑ´Ù¸é
+			// ì¸ì‡„ë¥¼ í•œë‹¤ë©´
 			count++;
 			if(d.index == m) {
 				return count;

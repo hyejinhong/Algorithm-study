@@ -27,7 +27,7 @@ public class BOJ_1764 {
 			set1.add(br.readLine());
 		}
 		
-		// set1¿¡ ÀÖ´Â °ª¸¸ ÀúÀåÇØµµ µÊ
+		// set1ì— ìˆëŠ” ê°’ë§Œ ì €ì¥í•´ë„ ë¨
 		for(int i=0; i<m; i++) {
 			String name = br.readLine();
 			if(set1.contains(name)) {

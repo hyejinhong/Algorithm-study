@@ -32,20 +32,20 @@ public class BOJ_1149 {
 		System.out.println(result);
 	}
 	
-	// index¹øÂ° Áı±îÁö »öÄ¥ÇÒ ¶§ÀÇ ÃÖ¼Ò ºñ¿ëÀ» ¹İÈ¯ÇÑ´Ù.
-	// index¹øÂ° Áı±îÁö »öÄ¥, color»öÀ¸·Î index¹øÂ° Áı Ä¥ÇÔ
+	// indexë²ˆì§¸ ì§‘ê¹Œì§€ ìƒ‰ì¹ í•  ë•Œì˜ ìµœì†Œ ë¹„ìš©ì„ ë°˜í™˜í•œë‹¤.
+	// indexë²ˆì§¸ ì§‘ê¹Œì§€ ìƒ‰ì¹ , colorìƒ‰ìœ¼ë¡œ indexë²ˆì§¸ ì§‘ ì¹ í•¨
 	public static int paint(int index, int color) {
-		// ±âÀú: ´Ù Ä¥ÇÔ
+		// ê¸°ì €: ë‹¤ ì¹ í•¨
 		if(index == 0) {
 			return cost[0][color];
 		}
 		
-		// Ä³½Ã°¡ ÀÖ´Ù¸é..
+		// ìºì‹œê°€ ìˆë‹¤ë©´..
 		if(cache[index][color] != -1) {
 			return cache[index][color];
 		}
 		
-		// Ä³½Ã°¡ ¾ø´Ù¸é..
+		// ìºì‹œê°€ ì—†ë‹¤ë©´..
 		int ret = 0;
 		if(color == RED) {
 			ret = Math.min(paint(index-1, GREEN), paint(index-1, BLUE)) + cost[index][RED]; 

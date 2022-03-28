@@ -41,7 +41,7 @@ public class BOJ_1916 {
 		System.out.println(dijkstra(start, end));
 	}
 
-	// start¿¡¼­ end·Î °¡´Â ÃÖ´Ü°Å¸® ¹İÈ¯
+	// startì—ì„œ endë¡œ ê°€ëŠ” ìµœë‹¨ê±°ë¦¬ ë°˜í™˜
 	public static int dijkstra(int start, int end) {
 		PriorityQueue<Integer> q = new PriorityQueue<>();
 		int[] dist = new int[n+1];

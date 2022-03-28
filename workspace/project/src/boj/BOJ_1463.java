@@ -15,7 +15,7 @@ public class BOJ_1463 {
 		System.out.println(calculate(n, 0));
 	}
 	
-	// numÀ» 1·Î ¸¸µé±â À§ÇÑ ¿¬»ê È½¼öÀÇ ÃÖ¼Ú°ª ¹İÈ¯
+	// numì„ 1ë¡œ ë§Œë“¤ê¸° ìœ„í•œ ì—°ì‚° íšŸìˆ˜ì˜ ìµœì†Ÿê°’ ë°˜í™˜
 	public static int calculate(int num, int remainder) {
 		if(remainder != 0) {
 			return Integer.MAX_VALUE;
@@ -23,17 +23,17 @@ public class BOJ_1463 {
 		if(num <= 0) {
 			return Integer.MAX_VALUE;
 		}
-		// ±âÀú: 1ÀÌ µÊ
+		// ê¸°ì €: 1ì´ ë¨
 		if(num == 1) {
 			return 0;
 		}
 		
-		// Ä³½Ã°¡ ÀÖÀ¸¸é
+		// ìºì‹œê°€ ìˆìœ¼ë©´
 		if(cache[num] != -1) {
 			return cache[num];
 		}
 		
-		// Ä³½Ã°¡ ¾øÀ¸¸é °è»ê
+		// ìºì‹œê°€ ì—†ìœ¼ë©´ ê³„ì‚°
 		int ret = 0;
 		ret = Math.min(calculate(num/3, num%3), 
 				Math.min(calculate(num/2, num%2), calculate(num-1, 0))) + 1;

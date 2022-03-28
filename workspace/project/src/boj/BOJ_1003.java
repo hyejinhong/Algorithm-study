@@ -37,7 +37,7 @@ public class BOJ_1003 {
 	}
 	
 	public static int count0(int num) {
-		// ±âÀú: n ±îÁö ±¸ÇÔ
+		// ê¸°ì €: n ê¹Œì§€ êµ¬í•¨
 		if(num == 0) {
 			return 1;
 		}
@@ -45,12 +45,12 @@ public class BOJ_1003 {
 			return 0;
 		}
 		
-		// Ä³½Ã°¡ ÀÖÀ¸¸é
+		// ìºì‹œê°€ ìˆìœ¼ë©´
 		if(cache0[num] != -1) {
 			return cache0[num];
 		}
 		
-		// Ä³½Ã°¡ ÀÖÀ¸¸é
+		// ìºì‹œê°€ ìˆìœ¼ë©´
 		int ret = 0;
 		ret = count0(num-1) + count0(num-2);
 		cache0[num] = ret;
@@ -58,7 +58,7 @@ public class BOJ_1003 {
 	}
 	
 	public static int count1(int num) {
-		// ±âÀú: n ±îÁö ±¸ÇÔ
+		// ê¸°ì €: n ê¹Œì§€ êµ¬í•¨
 		if(num == 0) {
 			return 0;
 		}
@@ -66,12 +66,12 @@ public class BOJ_1003 {
 			return 1;
 		}
 		
-		// Ä³½Ã°¡ ÀÖÀ¸¸é
+		// ìºì‹œê°€ ìˆìœ¼ë©´
 		if(cache1[num] != -1) {
 			return cache1[num];
 		}
 		
-		// Ä³½Ã°¡ ¾øÀ¸¸é
+		// ìºì‹œê°€ ì—†ìœ¼ë©´
 		int ret = 0;
 		ret = count1(num-1) + count1(num-2);
 		cache1[num] = ret;

@@ -51,7 +51,7 @@ public class BOJ_1260 {
 	}
 		
 	public static void bfs(int start) {
-		// ¹ß°ß ¿©ºÎ
+		// ë°œê²¬ ì—¬ë¶€
 		boolean[] discovered = new boolean[1001];
 		LinkedList<Integer> q = new LinkedList<>();
 		ArrayList<Integer> order = new ArrayList<>();
@@ -64,11 +64,11 @@ public class BOJ_1260 {
 			order.add(here);
 			
 			for(int i=1; i<=n; i++) {
-				// ÀÎÁ¢ÇÑ °£¼±ÀÌ´Ù
+				// ì¸ì ‘í•œ ê°„ì„ ì´ë‹¤
 				if(adj[here][i] != 0) {
 					int there = i;
 					
-					// Ã³À½ ¹ß°ßÇÑ °ÍÀÌ¸é
+					// ì²˜ìŒ ë°œê²¬í•œ ê²ƒì´ë©´
 					if(!discovered[there]) {
 						discovered[there] = true;
 						q.add(there);

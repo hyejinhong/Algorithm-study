@@ -14,17 +14,17 @@ public class BOJ_1157 {
 		
 		int[] letters = new int[26];
 		
-		// ¾ËÆÄºª¸¶´Ù ¾²ÀÎ È½¼ö count
+		// ì•ŒíŒŒë²³ë§ˆë‹¤ ì“°ì¸ íšŸìˆ˜ count
 		for(int i=0; i<word.length(); i++) {
 			char ch = word.charAt(i);
 			int index = ch - 'a';
 			letters[index]++;
 		}
 		
-		// »ç¿ë È½¼ö ÃÖ´ñ°ª Ã£±â
+		// ì‚¬ìš© íšŸìˆ˜ ìµœëŒ“ê°’ ì°¾ê¸°
 		int max = -1;
 		int index = 0;
-		boolean flag = false; // °°Àº max °ª °¡Áø ¾ËÆÄºªÀÌ ¿©·¯°³ÀÎÁö..
+		boolean flag = false; // ê°™ì€ max ê°’ ê°€ì§„ ì•ŒíŒŒë²³ì´ ì—¬ëŸ¬ê°œì¸ì§€..
 		for(int i=0; i<letters.length; i++) {
 			if(max < letters[i]) {
 				max = letters[i];

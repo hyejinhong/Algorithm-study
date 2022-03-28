@@ -32,14 +32,14 @@ public class BOJ_1780 {
 	}
 
 	public static void cut(int y, int x, int width) {
-		// ±âÀú : ¸ğµÎ °°Àº ¼ö·Î Ã¤¿öÁü
+		// ê¸°ì € : ëª¨ë‘ ê°™ì€ ìˆ˜ë¡œ ì±„ì›Œì§
 		if(check(y, x, width)) {
 			int num = map[y][x];
 			result[num+1]++;
 			return;
 		}
 		
-		// °°Àº ¼ö·Î Ã¤¿öÁöÁö ¾Ê¾ÒÀ¸¸é ´õ Àß¶ó¾ßÇÔ
+		// ê°™ì€ ìˆ˜ë¡œ ì±„ì›Œì§€ì§€ ì•Šì•˜ìœ¼ë©´ ë” ì˜ë¼ì•¼í•¨
 		int newWidth = width/3;
 		
 		for(int i=0; i<3; i++) {
@@ -49,7 +49,7 @@ public class BOJ_1780 {
 		}
 	}
 	
-	// Á¾ÀÌ°¡ °°Àº ¼ö·Î¸¸ Ã¤¿öÁ®ÀÖ´ÂÁö È®ÀÎÇÏ´Â ¸Ş¼Òµå
+	// ì¢…ì´ê°€ ê°™ì€ ìˆ˜ë¡œë§Œ ì±„ì›Œì ¸ìˆëŠ”ì§€ í™•ì¸í•˜ëŠ” ë©”ì†Œë“œ
 	public static boolean check(int y, int x, int width) {
 		int num = map[y][x];
 		

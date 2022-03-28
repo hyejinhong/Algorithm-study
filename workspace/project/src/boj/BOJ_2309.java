@@ -23,7 +23,7 @@ public class BOJ_2309 {
 	}
 	
 	public static void pick() {
-		// ±âÀú: 7¸í »ÌÀ½
+		// ê¸°ì €: 7ëª… ë½‘ìŒ
 		if(picked.size() == 7) {
 			int sum = calculate();
 			if(sum == 100) {
@@ -31,7 +31,7 @@ public class BOJ_2309 {
 				for(int i=0; i<7; i++) {
 					System.out.println(picked.get(i));
 				}
-				System.exit(0); // ÇÑ°³¸¸ Ãâ·ÂÇÏ¸é µÇ´Ï±î ±×³É ³¡³»¹ö¸²
+				System.exit(0); // í•œê°œë§Œ ì¶œë ¥í•˜ë©´ ë˜ë‹ˆê¹Œ ê·¸ëƒ¥ ëë‚´ë²„ë¦¼
 			}
 		}
 		

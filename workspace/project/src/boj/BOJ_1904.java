@@ -18,19 +18,19 @@ public class BOJ_1904 {
 		System.out.println(count(n));
 	}
 	
-	// ¸¸µé ¼ö ÀÖ´Â ±æÀÌ°¡ lengthÀÎ 2Áø ¼ö¿­ÀÇ °³¼ö ¹İÈ¯
+	// ë§Œë“¤ ìˆ˜ ìˆëŠ” ê¸¸ì´ê°€ lengthì¸ 2ì§„ ìˆ˜ì—´ì˜ ê°œìˆ˜ ë°˜í™˜
 	public static int count(int length) {
-		// ±âÀú
+		// ê¸°ì €
 		if(length <= 0) {
 			return 0;
 		}
 			
-		// Ä³½Ã°¡ ÀÖ´Ù¸é..
+		// ìºì‹œê°€ ìˆë‹¤ë©´..
 		if(cache[length] != -1) {
 			return cache[length];
 		}
 		
-		// Ä³½Ã°¡ ¾ø´Ù¸é.. °è»ê
+		// ìºì‹œê°€ ì—†ë‹¤ë©´.. ê³„ì‚°
 		cache[length] = (count(length-1) + count(length-2))%MOD;
 		return cache[length];
 	}

@@ -66,7 +66,7 @@ public class BOJ_1504 {
 		dijkstra(v1, START_V1);
 		dijkstra(v2, START_V2);
 		
-		// °æ·Î°¡ ¾øÀ½
+		// ê²½ë¡œê°€ ì—†ìŒ
 		if(dist[START_1][n] == max) {
 			System.out.println(-1);
 			return;
@@ -88,14 +88,14 @@ public class BOJ_1504 {
 			int here = e.to;
 			int weight = e.weight;
 			
-			// ÇöÀç °¡ÁßÄ¡°¡ ÀúÀåµÈ ÃÖ¼Ú°ªº¸´Ù Å©¸é ±×³É ½ºÅµ
+			// í˜„ì¬ ê°€ì¤‘ì¹˜ê°€ ì €ì¥ëœ ìµœì†Ÿê°’ë³´ë‹¤ í¬ë©´ ê·¸ëƒ¥ ìŠ¤í‚µ
 			if(weight > dist[index][here]) {
 				continue;
 			}
 			
-			// ¸ğµç Á¤Á¡ °Ë»ç
+			// ëª¨ë“  ì •ì  ê²€ì‚¬
 			for(int i=1; i<=n; i++) {
-				// ÀÎÁ¢, ÇöÀç ÃÖ¼Ú°ªº¸´Ù °¡±î¿î °Å¸® -> °»½Å
+				// ì¸ì ‘, í˜„ì¬ ìµœì†Ÿê°’ë³´ë‹¤ ê°€ê¹Œìš´ ê±°ë¦¬ -> ê°±ì‹ 
 				if(map[here][i] != 0 && dist[index][i] > dist[index][here]+map[here][i]) {
 					dist[index][i] = dist[index][here] + map[here][i];
 					q.add(new Edge(i, dist[index][i]));

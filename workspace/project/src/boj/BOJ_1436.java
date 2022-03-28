@@ -16,7 +16,7 @@ public class BOJ_1436 {
 		while(index != n) {
 			num++;
 			
-			// 666ÀÌ Æ÷ÇÔµÇ´ÂÁö È®ÀÎ
+			// 666ì´ í¬í•¨ë˜ëŠ”ì§€ í™•ì¸
 			int temp = num;
 			int numOfSix = 0;
 			

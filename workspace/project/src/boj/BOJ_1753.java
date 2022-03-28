@@ -72,17 +72,17 @@ public class BOJ_1753 {
 			int here = e.to;
 			int weight = e.weight;
 			
-			// ÇöÀç °¡ÁßÄ¡°¡ ÀúÀåµÈ ÃÖ¼Ú°ªº¸´Ù Å©¸é ±×³É ½ºÅµÇÔ
+			// í˜„ì¬ ê°€ì¤‘ì¹˜ê°€ ì €ì¥ëœ ìµœì†Ÿê°’ë³´ë‹¤ í¬ë©´ ê·¸ëƒ¥ ìŠ¤í‚µí•¨
 			if(weight > dist[here]) {
 				continue;
 			}
 			
-			// ÀÎÁ¢ÇÑ Á¤Á¡À» °Ë»ç
+			// ì¸ì ‘í•œ ì •ì ì„ ê²€ì‚¬
 			for(int i=0; i<adj[here].size(); i++) {
 				int there = adj[here].get(i).to;
 				int value = adj[here].get(i).weight;
 				
-				// ´õ ÂªÀº °æ·Î°¡ ÀÖ´Ù¸é ±×°ÍÀ¸·Î °»½Å
+				// ë” ì§§ì€ ê²½ë¡œê°€ ìˆë‹¤ë©´ ê·¸ê²ƒìœ¼ë¡œ ê°±ì‹ 
 				if(dist[there] > dist[here] + value) {
 					dist[there] = dist[here] + value;
 					q.add(new Edge(there, dist[there]));

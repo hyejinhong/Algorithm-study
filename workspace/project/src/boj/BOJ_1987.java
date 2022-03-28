@@ -9,7 +9,7 @@ public class BOJ_1987 {
 	static int r, c;
 	static char[][] map = new char[21][21];
 	
-	static int[] dy = { -1, 1, 0, 0 }; // »óÇÏÁÂ¿ì
+	static int[] dy = { -1, 1, 0, 0 }; // ìƒí•˜ì¢Œìš°
 	static int[] dx = { 0, 0, -1, 1 };
 	
 	static boolean[] visited = new boolean[26];
@@ -36,7 +36,7 @@ public class BOJ_1987 {
 	public static void move(int y, int x, int count) {
 		visited[map[y][x]-'A'] = true;
 		
-		// ±âÀú: ´õ´Â ¿òÁ÷ÀÏ ¼ö ¾ø´Ù
+		// ê¸°ì €: ë”ëŠ” ì›€ì§ì¼ ìˆ˜ ì—†ë‹¤
 		if(!isMovable(y, x)) {
 			max = Math.max(max, count);
 			return;
@@ -50,10 +50,10 @@ public class BOJ_1987 {
 				continue;
 			}
 			
-			// ÀÌ¹Ì ¹âÀº Àû ÀÖ´Â ¾ËÆÄºªÀÎÁö °Ë»çÇØ¾ßÇÔ			
+			// ì´ë¯¸ ë°Ÿì€ ì  ìˆëŠ” ì•ŒíŒŒë²³ì¸ì§€ ê²€ì‚¬í•´ì•¼í•¨			
 			char next = map[ny][nx];
 			
-			// ¾È ¹âÀº Ä­ÀÌ¸é ÀÌµ¿ÇÔ..
+			// ì•ˆ ë°Ÿì€ ì¹¸ì´ë©´ ì´ë™í•¨..
 			if(!visited[next-'A']) {
 				visited[next-'A'] = true;
 				
@@ -64,7 +64,7 @@ public class BOJ_1987 {
 		}
 	}
 	
-	// (y, x)¿¡¼­ ´õ ¿òÁ÷ÀÏ ¼ö ÀÖ´ÂÁö È®ÀÎÇÔ
+	// (y, x)ì—ì„œ ë” ì›€ì§ì¼ ìˆ˜ ìˆëŠ”ì§€ í™•ì¸í•¨
 	public static boolean isMovable(int y, int x) {
 		for(int i=0; i<4; i++) {
 			int ny = y + dy[i];
@@ -74,7 +74,7 @@ public class BOJ_1987 {
 				continue;
 			}
 			
-			// ÀÌ¹Ì ¹âÀº Àû ÀÖ´Â ¾ËÆÄºªÀÎÁö °Ë»çÇØ¾ßÇÔ			
+			// ì´ë¯¸ ë°Ÿì€ ì  ìˆëŠ” ì•ŒíŒŒë²³ì¸ì§€ ê²€ì‚¬í•´ì•¼í•¨			
 			char next = map[ny][nx];
 			if(!visited[next-'A']) {
 				return true;

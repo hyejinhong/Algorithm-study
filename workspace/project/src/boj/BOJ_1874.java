@@ -23,8 +23,8 @@ public class BOJ_1874 {
 		
 		// go
 		int index = 0;
-		int cur = 1; // ¿À¸§Â÷¼øÀ¸·Î µé¾î°¥ ÇöÀç ¼ıÀÚ
-		int element = arr[index]; // ¼ö¿­ ¼ıÀÚ
+		int cur = 1; // ì˜¤ë¦„ì°¨ìˆœìœ¼ë¡œ ë“¤ì–´ê°ˆ í˜„ì¬ ìˆ«ì
+		int element = arr[index]; // ìˆ˜ì—´ ìˆ«ì
 		stack.push(cur++);
 		StringBuilder result = new StringBuilder();
 //		String result = "";
@@ -40,14 +40,14 @@ public class BOJ_1874 {
 				continue;
 			}
 			
-			// ¸¸¾à top ¾Æ·¡¿¡ ÇöÀç ²¨³»¾ßÇÒ ¿ø¼Ò°¡ ÀÖÀ¸¸é ºÒ´ÉÀÓ
+			// ë§Œì•½ top ì•„ë˜ì— í˜„ì¬ êº¼ë‚´ì•¼í•  ì›ì†Œê°€ ìˆìœ¼ë©´ ë¶ˆëŠ¥ì„
 			if(stack.contains(element) && stack.peek() != element) {
 				System.out.println("NO");
 				return;
 			}
 			
-			// ÇöÀç ¼ö¿­ÀÌ ½ºÅÃ¿¡ Áı¾î³ÖÀ» ¼ıÀÚº¸´Ù Å¬ ¶§
-			// ½ºÅÃ¿¡ Áı¾î³Ö´Â´Ù
+			// í˜„ì¬ ìˆ˜ì—´ì´ ìŠ¤íƒì— ì§‘ì–´ë„£ì„ ìˆ«ìë³´ë‹¤ í´ ë•Œ
+			// ìŠ¤íƒì— ì§‘ì–´ë„£ëŠ”ë‹¤
 			if(cur <= n) {
 				result.append("+\n");
 				stack.add(cur);

@@ -57,7 +57,7 @@ public class BOJ_2178 {
 					continue;
 				}
 				
-				// ÀÎÁ¢ÇØÀÖ°í Ã³À½ ¹ß°ßÇß´Ù¸é
+				// ì¸ì ‘í•´ìˆê³  ì²˜ìŒ ë°œê²¬í–ˆë‹¤ë©´
 				if(map[ny][nx] != 0 && distance[ny][nx] == -1) {
 					yq.add(ny);
 					xq.add(nx);
@@ -65,7 +65,7 @@ public class BOJ_2178 {
 				}
 			}
 		}
-		return distance[n][m] + 1; // ½ÃÀÛ À§Ä¡, µµÂø À§Ä¡µµ Æ÷ÇÔÇÏ¹Ç·Î +1
+		return distance[n][m] + 1; // ì‹œì‘ ìœ„ì¹˜, ë„ì°© ìœ„ì¹˜ë„ í¬í•¨í•˜ë¯€ë¡œ +1
 	}
 }
 

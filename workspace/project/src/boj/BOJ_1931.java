@@ -51,14 +51,14 @@ public class BOJ_1931 {
 		System.out.println(schedule());
 	}
 	
-	// ÃÖ´ë »ç¿ëÇÒ ¼ö ÀÖ´À È¸ÀÇ ¼ö ¹İÈ¯
+	// ìµœëŒ€ ì‚¬ìš©í•  ìˆ˜ ìˆëŠ íšŒì˜ ìˆ˜ ë°˜í™˜
 	public static int schedule() {
 		int count = 1;
 		Arrays.sort(meetings);
 		
 		int end = meetings[0].end;
 		for(int i=1; i<meetings.length; i++) {
-			// °ãÄ¡Áö ¾Ê´Â ½ºÄÉÁÙÀÌ¸é
+			// ê²¹ì¹˜ì§€ ì•ŠëŠ” ìŠ¤ì¼€ì¤„ì´ë©´
 			if(meetings[i].start >= end) {
 				count++;
 				end = meetings[i].end;

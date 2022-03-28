@@ -28,9 +28,9 @@ public class BOJ_2156 {
 		System.out.println(drink(n-1));
 	}
 	
-	// num¹øÂ° ÀÜ±îÁö °í·ÁÇßÀ» ¶§ ÃÖ´ë·Î ¸¶½Ç ¼ö ÀÖ´Â ¾ç ¹İÈ¯
+	// numë²ˆì§¸ ì”ê¹Œì§€ ê³ ë ¤í–ˆì„ ë•Œ ìµœëŒ€ë¡œ ë§ˆì‹¤ ìˆ˜ ìˆëŠ” ì–‘ ë°˜í™˜
 	public static int drink(int num) {
-		// ±âÀú
+		// ê¸°ì €
 		if(num == 0) {
 			return wine[0];
 		}
@@ -38,12 +38,12 @@ public class BOJ_2156 {
 			return Integer.MIN_VALUE;
 		}
 		
-		// Ä³½Ã°¡ ÀÖ´Ù¸é
+		// ìºì‹œê°€ ìˆë‹¤ë©´
 		if(cache[num] != -1) {
 			return cache[num];
 		}
 		
-		// Ä³½Ã°¡ ¾ø´Ù¸é
+		// ìºì‹œê°€ ì—†ë‹¤ë©´
 		int ret = 0;
 		ret = Math.max(drink(num-1), Math.max(drink(num-2)+wine[num], drink(num-3)+wine[num-1]+wine[num]));
 		cache[num] = ret;

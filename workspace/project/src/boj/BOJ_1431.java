@@ -21,12 +21,12 @@ public class BOJ_1431 {
 		Arrays.sort(serials, new Comparator<String>() {
 			@Override
 			public int compare(String s1, String s2) {
-				// ±æÀÌ
+				// ê¸¸ì´
 				int result = s1.length() - s2.length();
 				
-				// ±æÀÌ°¡ °°À¸¸é
+				// ê¸¸ì´ê°€ ê°™ìœ¼ë©´
 				if(result == 0) {
-					// ÀÚ¸®¼öÀÇ ÇÕ ºñ±³..
+					// ìë¦¬ìˆ˜ì˜ í•© ë¹„êµ..
 					int sum1 = 0;
 					int sum2 = 0;
 					for(int i=0; i<s1.length(); i++) {
@@ -43,7 +43,7 @@ public class BOJ_1431 {
 					
 					int sumResult = sum1 - sum2;
 					
-					// ÀÚ¸´¼ö ÇÕ¸¶Àú °°´Ù¸é, »çÀü¼ø
+					// ìë¦¿ìˆ˜ í•©ë§ˆì € ê°™ë‹¤ë©´, ì‚¬ì „ìˆœ
 					if(sumResult == 0) {
 						return s1.compareTo(s2);
 					}

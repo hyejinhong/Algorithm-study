@@ -10,7 +10,7 @@ public class BOJ_1018 {
 	static int result = Integer.MAX_VALUE;
 	final static int SIZE = 8;
 	
-	// ºñ±³¸¦ À§ÇÑ º¸µåÆÇ
+	// ë¹„êµë¥¼ ìœ„í•œ ë³´ë“œíŒ
 	final static String[] black = {
 			"BWBWBWBW",
 			"WBWBWBWB",
@@ -56,12 +56,12 @@ public class BOJ_1018 {
 	}
 	
 	public static int calculate(int y, int x) {
-		// ±âÀú: ¹üÀ§ ÃÊ°ú
+		// ê¸°ì €: ë²”ìœ„ ì´ˆê³¼
 		if(y+SIZE-1 >= n || x+SIZE-1 >= m) {
 			return Integer.MAX_VALUE;
 		}
 		
-		// black °Ë»ç
+		// black ê²€ì‚¬
 		int blackNum = 0;
 		for(int i=y; i<y+SIZE; i++) {
 			for(int j=x; j<x+SIZE; j++) {
@@ -73,7 +73,7 @@ public class BOJ_1018 {
 			}
 		}
 		
-		// white °Ë»ç
+		// white ê²€ì‚¬
 		int whiteNum = 0;
 		for(int i=y; i<y+SIZE; i++) {
 			for(int j=x; j<x+SIZE; j++) {

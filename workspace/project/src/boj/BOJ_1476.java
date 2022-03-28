@@ -21,13 +21,13 @@ public class BOJ_1476 {
 		s = Integer.parseInt(stk.nextToken());
 		m = Integer.parseInt(stk.nextToken());
 		
-		// ºê·çÆ® Æ÷½º
+		// ë¸Œë£¨íŠ¸ í¬ìŠ¤
 		for(int i=1; i<=MAX; i++) {
 			int nowE = i % STD_E == 0 ? STD_E : i % STD_E;
 			int nowS = i % STD_S == 0 ? STD_S : i % STD_S;
 			int nowM = i % STD_M == 0 ? STD_M : i % STD_M;
 			
-			// Çæ! ¸ÂÀ½!
+			// í—! ë§ìŒ!
 			if(nowE == e && nowS == s && nowM == m) {
 				System.out.println(i);
 				break;

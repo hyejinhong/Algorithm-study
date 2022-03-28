@@ -32,7 +32,7 @@ public class BOJ_1992 {
 	}
 	
 	public static void cut(int y, int x, int width) throws IOException {
-		// ±âÀú: ¿µ»óÀÌ °°Àº ¼ıÀÚ¸¸À¸·Î ÀÌ·ç¾îÁü
+		// ê¸°ì €: ì˜ìƒì´ ê°™ì€ ìˆ«ìë§Œìœ¼ë¡œ ì´ë£¨ì–´ì§
 		if(sameNumber(y, x, width)) {
 			int num = display[y][x];
 			if(num == 0) {
@@ -45,7 +45,7 @@ public class BOJ_1992 {
 			}
 		}
 		
-		// ´Ù¸¥ ¼ıÀÚ°¡ ¼¯¿©ÀÖÀ¸¸é Àß¶ó¾ß ÇÔ
+		// ë‹¤ë¥¸ ìˆ«ìê°€ ì„ì—¬ìˆìœ¼ë©´ ì˜ë¼ì•¼ í•¨
 		bw.write("(");
 		cut(y, x, width/2);
 		cut(y, x+width/2, width/2);
@@ -54,7 +54,7 @@ public class BOJ_1992 {
 		bw.write(")");
 	}
 	
-	// (x, y)ºÎÅÍ ½ÃÀÛÇÏ´Â width ±æÀÌÀÇ ºÎºĞ ¿µ»óÀÌ ¸ğµÎ °°Àº ¼ıÀÚ·Î ÀÌ·ç¾îÁ® ÀÖ´ÂÁö °Ë»ç
+	// (x, y)ë¶€í„° ì‹œì‘í•˜ëŠ” width ê¸¸ì´ì˜ ë¶€ë¶„ ì˜ìƒì´ ëª¨ë‘ ê°™ì€ ìˆ«ìë¡œ ì´ë£¨ì–´ì ¸ ìˆëŠ”ì§€ ê²€ì‚¬
 	public static boolean sameNumber(int y, int x, int width) {
 		int num = display[y][x];
 		

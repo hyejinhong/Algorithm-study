@@ -30,19 +30,19 @@ public class BOJ_2193 {
 		System.out.println(result);
 	}
 	
-	// lengthÀÚ¸® ³¡ÀÚ¸® ¼ö°¡ lastÀÎ ÀÌÄ£¼öÀÇ °³¼ö¸¦ ¹İÈ¯
+	// lengthìë¦¬ ëìë¦¬ ìˆ˜ê°€ lastì¸ ì´ì¹œìˆ˜ì˜ ê°œìˆ˜ë¥¼ ë°˜í™˜
 	public static long count(int length, int last) {
-		// ±âÀú
+		// ê¸°ì €
 		if(length == 1) {
 			return 1;
 		}
 		
-		// Ä³½Ã°¡ ÀÖÀ¸¸é
+		// ìºì‹œê°€ ìˆìœ¼ë©´
 		if(cache[length][last] != -1) {
 			return cache[length][last];
 		}
 		
-		// Ä³½Ã°¡ ¾øÀ¸¸é
+		// ìºì‹œê°€ ì—†ìœ¼ë©´
 		long ret = 0;
 		if(last == 0) {
 			ret = count(length-1, 0) + count(length-1, 1);

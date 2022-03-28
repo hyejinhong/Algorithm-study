@@ -29,7 +29,7 @@ public class BOJ_2110 {
 	}
 	
 	public static int binarySearch() {
-		int left = 1; // ÃÖ¼Ò°Å¸®
+		int left = 1; // ìµœì†Œê±°ë¦¬
 		int right = houses[houses.length-1];
 		int mid = 0;
 				
@@ -38,12 +38,12 @@ public class BOJ_2110 {
 		while(left <= right) {
 			mid = (left + right) / 2;
 			
-			// °øÀ¯±â°¡ C°³ ÀÌ»ó ¼³Ä¡µÊ -> ÁÙÀÏ ¼öµµ ÀÖ´Ù
+			// ê³µìœ ê¸°ê°€ Cê°œ ì´ìƒ ì„¤ì¹˜ë¨ -> ì¤„ì¼ ìˆ˜ë„ ìˆë‹¤
 			if(isValid(mid)) {
 				max = Math.max(max, mid);
 				left = mid+1;
 			}
-			// C°³º¸´Ù Àû°Ô ¼³Ä¡µÊ -> ´õ °Å¸®¸¦ Á¼Çô¾ß ÇÔ.
+			// Cê°œë³´ë‹¤ ì ê²Œ ì„¤ì¹˜ë¨ -> ë” ê±°ë¦¬ë¥¼ ì¢í˜€ì•¼ í•¨.
 			else {
 				right = mid-1;
 			}
@@ -53,23 +53,23 @@ public class BOJ_2110 {
 	
 	public static boolean isValid(int mid) {
 		int prev = houses[0];
-		int count = 1; // °øÀ¯±â °³¼ö
+		int count = 1; // ê³µìœ ê¸° ê°œìˆ˜
 		
 		for(int i=1; i<houses.length; i++) {
 			int house = houses[i];
 			
-			// ÀÌÀü °øÀ¯±â ¼³Ä¡ Áı°ú Áö±İ ÁıÀÇ °Å¸® »çÀÌ°¡ mid ÀÌ»óÀÎ°¡?
+			// ì´ì „ ê³µìœ ê¸° ì„¤ì¹˜ ì§‘ê³¼ ì§€ê¸ˆ ì§‘ì˜ ê±°ë¦¬ ì‚¬ì´ê°€ mid ì´ìƒì¸ê°€?
 			if(house-prev >= mid) {
-				count++; // °øÀ¯±â ¼³Ä¡
+				count++; // ê³µìœ ê¸° ì„¤ì¹˜
 				prev = house;
 			}
 		}
 		
-		// °øÀ¯±â°¡ c°³º¸´Ù ¸¹ÀÌ ¼³Ä¡µÊ
+		// ê³µìœ ê¸°ê°€ cê°œë³´ë‹¤ ë§ì´ ì„¤ì¹˜ë¨
 		if(count >= c) {
 			return true;
 		}
-		// c°³º¸´Ù Àû°Ô ¼³Ä¡µÇ¾úÀ½
+		// cê°œë³´ë‹¤ ì ê²Œ ì„¤ì¹˜ë˜ì—ˆìŒ
 		else {
 			return false;
 		}

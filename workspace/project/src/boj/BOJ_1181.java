@@ -27,7 +27,7 @@ public class BOJ_1181 {
 		
 		Collections.sort(list, new Comparator<String>() {
 			public int compare(String o1, String o2) {
-				// ±Ê¿Ã∑Œ
+				// Í∏∏Ïù¥Î°ú
 				int result = o1.length() - o2.length();
 				if(result == 0) {
 					return o1.compareTo(o2);

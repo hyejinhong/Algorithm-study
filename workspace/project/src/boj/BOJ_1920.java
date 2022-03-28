@@ -49,24 +49,24 @@ public class BOJ_1920 {
 	}
 
 	public static void binarySearch(int l, int r, int target) {
-		// ±âÀú1: ´äÀ» Ã£À½
+		// ê¸°ì €1: ë‹µì„ ì°¾ìŒ
 //		System.out.println("l: "+l+", r: "+r+", target: "+target);
 		int m = (l+r) / 2;
 		if(arr[m] == target) {
 			System.out.println("1");
 			return;
 		}
-		// ±âÀú2: ³¡±îÁö ¿Ô´Âµ¥ ´äÀÌ ¾ø¾î
+		// ê¸°ì €2: ëê¹Œì§€ ì™”ëŠ”ë° ë‹µì´ ì—†ì–´
 		if(l == r) {
 			System.out.println("0");
 			return;
 		}
 		
-		// ¿ŞÂÊ ¹üÀ§¿¡¼­ Ã£¾Æ¾ß ÇÏ´Â °æ¿ì
+		// ì™¼ìª½ ë²”ìœ„ì—ì„œ ì°¾ì•„ì•¼ í•˜ëŠ” ê²½ìš°
 		if(arr[m] > target) {
 			binarySearch(l, m-1, target);
 		}
-		// ¿À¸¥ÂÊ ¹üÀ§¿¡¼­ Ã£¾Æ¾ß ÇÏ´Â °æ¿ì
+		// ì˜¤ë¥¸ìª½ ë²”ìœ„ì—ì„œ ì°¾ì•„ì•¼ í•˜ëŠ” ê²½ìš°
 		else {
 			binarySearch(m+1, r, target);
 		}

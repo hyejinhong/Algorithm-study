@@ -12,7 +12,7 @@ public class BOJ_2206 {
 	static class Point {
 		int y;
 		int x;
-		int d; // µå¸± »ç¿ë±Ç, 1ÀÌ¸é ÇÑ ¹ø ¾µ ¼ö ÀÖ´Â °Í
+		int d; // ë“œë¦´ ì‚¬ìš©ê¶Œ, 1ì´ë©´ í•œ ë²ˆ ì“¸ ìˆ˜ ìˆëŠ” ê²ƒ
 		
 		Point(int y, int x, int d) {
 			this.y = y;
@@ -45,7 +45,7 @@ public class BOJ_2206 {
 		bfs(0, 0);
 	}
 	
-	// (y, x)¿¡¼­ ½ÃÀÛÇÏ¿© bfs
+	// (y, x)ì—ì„œ ì‹œì‘í•˜ì—¬ bfs
 	public static void bfs(int y, int x) {
 		Queue<Point> q = new LinkedList<Point>();
 		int[][] distance = new int[n][m];
@@ -62,9 +62,9 @@ public class BOJ_2206 {
 		while(!q.isEmpty()) {
 			Point p = q.poll();
 			
-			// µµÂø
+			// ë„ì°©
 			if(p.y == n-1 && p.x == m-1) {
-				System.out.println(distance[p.y][p.x] + 1); // ½ÃÀÛ ³¡ Ä­ Æ÷ÇÔÀÌ¹Ç·Î + 1
+				System.out.println(distance[p.y][p.x] + 1); // ì‹œì‘ ë ì¹¸ í¬í•¨ì´ë¯€ë¡œ + 1
 				return;
 			}
 			
@@ -76,20 +76,20 @@ public class BOJ_2206 {
 					continue;
 				}
 				
-				// º®ÀÏ ¶§
+				// ë²½ì¼ ë•Œ
 				if(map[ny][nx] == 1) {
-					// µå¸±À» »ç¿ëÇÒ ¼ö ÀÖ°í ¹æ¹®ÇÑ ÀûÀÌ ¾ø´Ù
+					// ë“œë¦´ì„ ì‚¬ìš©í•  ìˆ˜ ìˆê³  ë°©ë¬¸í•œ ì ì´ ì—†ë‹¤
 					if(p.d == 1 && !visited[ny][nx][0]) {
 						q.add(new Point(ny, nx, 0));
 						distance[ny][nx] = distance[p.y][p.x] + 1;
 						visited[ny][nx][0] = true;
 					}
 				}
-				// º®ÀÌ ¾Æ´Ò ¶§
+				// ë²½ì´ ì•„ë‹ ë•Œ
 				else {
-					// ¹æ¹®ÇÑ ÀûÀÌ ¾øÀ¸¸é
+					// ë°©ë¬¸í•œ ì ì´ ì—†ìœ¼ë©´
 					if(!visited[ny][nx][p.d]) {
-						q.add(new Point(ny, nx, p.d)); // ÇöÀç µå¸± »óÅÂ °¡Á®°¨
+						q.add(new Point(ny, nx, p.d)); // í˜„ì¬ ë“œë¦´ ìƒíƒœ ê°€ì ¸ê°
 						distance[ny][nx] = distance[p.y][p.x] + 1;
 						visited[ny][nx][p.d] = true;
 					}

@@ -37,7 +37,7 @@ public class BOJ_1759 {
 	}
 	
 	public static void pick(int index) {
-		// ±âÀú: l°³ ´Ù »ÌÀ½
+		// ê¸°ì €: lê°œ ë‹¤ ë½‘ìŒ
 		if(picked.size() == l) {
 			if(isValid()) {
 				save();
@@ -63,7 +63,7 @@ public class BOJ_1759 {
 	}
 	
 	public static boolean isValid() {
-		// ÃÖ¼Ò ÇÑ °³ ¸ğÀ½, ÃÖ¼Ò µÎ °³ ÀÚÀ½
+		// ìµœì†Œ í•œ ê°œ ëª¨ìŒ, ìµœì†Œ ë‘ ê°œ ììŒ
 		int numOfVowels = 0;
 		int numOfCons = 0;
 		

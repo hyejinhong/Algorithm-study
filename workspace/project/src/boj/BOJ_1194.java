@@ -25,7 +25,7 @@ public class BOJ_1194 {
 	static int n, m;
 	static char[][] map = new char[50][50];
 	
-	static int[] dy = { -1, 1, 0, 0 }; // »óÇÏÁÂ¿ì
+	static int[] dy = { -1, 1, 0, 0 }; // ìƒí•˜ì¢Œìš°
 	static int[] dx = { 0, 0, -1, 1 };
 	static boolean[][][] visited = new boolean[50][50][1 << 6];
 	
@@ -60,7 +60,7 @@ public class BOJ_1194 {
 		
 		while(!q.isEmpty()) {
 			Point here = q.poll();
-			// Ãâ±¸¿¡ µµÂøÇßÀ½
+			// ì¶œêµ¬ì— ë„ì°©í–ˆìŒ
 			if(map[here.y][here.x] == '1') {
 				return here.dist;
 			}
@@ -76,23 +76,23 @@ public class BOJ_1194 {
 				}
 				
 				if(map[ny][nx] != '#') {
-					// ¿­¼èÀÌ¸é
+					// ì—´ì‡ ì´ë©´
 					if(map[ny][nx] >= 'a' && map[ny][nx] <= 'f') {
 						key |= (1 << map[ny][nx] -'a');
 					}
 					
-					// ¹®ÀÎ °æ¿ì....
+					// ë¬¸ì¸ ê²½ìš°....
 					if(map[ny][nx] >= 'A' && map[ny][nx] <= 'F') {
-						// ¿­¼è¸¦ ¾È °®°íÀÖ´Ù..!!
+						// ì—´ì‡ ë¥¼ ì•ˆ ê°–ê³ ìˆë‹¤..!!
 						if((key & (1 << (map[ny][nx] - 'A'))) == 0) {
-							// ¸ø Áö³ª°£´Ù.
+							// ëª» ì§€ë‚˜ê°„ë‹¤.
 							continue;
 						}
 					}
 			
-					// Áö±İ °¡Áø ¿­¼è·Î Ã³À½ ¹æ¹®ÇÏ´Â °÷ÀÌ¸é
+					// ì§€ê¸ˆ ê°€ì§„ ì—´ì‡ ë¡œ ì²˜ìŒ ë°©ë¬¸í•˜ëŠ” ê³³ì´ë©´
 					if(!visited[ny][nx][key]) {
-						visited[ny][nx][key] = true; // ¹æ¹®Çß´Ù°í ¸¶Å·
+						visited[ny][nx][key] = true; // ë°©ë¬¸í–ˆë‹¤ê³  ë§ˆí‚¹
 						q.offer(new Point(ny, nx, here.dist+1, key));
 					}
 

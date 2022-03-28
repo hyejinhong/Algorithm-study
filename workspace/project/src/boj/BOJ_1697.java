@@ -42,7 +42,7 @@ public class BOJ_1697 {
 			}
 			
 			int there = 0;
-			// °È±â
+			// ê±·ê¸°
 			there = here-1;
 			if(there >= 0 && there < MAX && !discovered[there]) {
 				q.add(there);
@@ -57,7 +57,7 @@ public class BOJ_1697 {
 				distance[there] = distance[here] + 1;
 			}
 			
-			// ¼ø°£ÀÌµ¿
+			// ìˆœê°„ì´ë™
 			there = here*2;
 			if(there >= 0 && there < MAX && !discovered[there]) {
 				q.add(there);

@@ -66,7 +66,7 @@ public class BOJ_1167 {
 		System.out.println(max);
 	}
 	
-	// start¿¡¼­ end ±îÁö ±æÀÌ
+	// startì—ì„œ end ê¹Œì§€ ê¸¸ì´
 	public static int[] bfs(int start) {
 		int[] dist = new int[v+1];
 		Arrays.fill(dist, -1);
