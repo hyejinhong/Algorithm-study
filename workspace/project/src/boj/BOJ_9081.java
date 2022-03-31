@@ -8,38 +8,47 @@ import java.util.*;
 public class BOJ_9081 {
 
     static int t;
+    static char[] arr;
+
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         t = Integer.parseInt(br.readLine());
 
-        for(int i=0; i<t; i++) {
+        for(int test=0; test<t; test++) {
             String input = br.readLine();
-            char[] arr = input.toCharArray();
+            arr = input.toCharArray();
 
             // 모든 경우의 수를 다 만들고 찾으면 시간초과
             // 뒤에서부터 체크
-            for(int j=arr.length-1; j>=0; j--) {
-//                // 나랑 바꿀 글자 없음
-//                if(j==0) {
-//                    System.out.println(arr);
-//                    break;
-//                }
-                // 내 앞에 있는 글자들 검사
-                for(int k=j-1; k>=0; k--) {
-                    // 내 앞 글자가 나보다 작으면 걔랑 자리 바꿔야됨
-                    if(arr[j] > arr[k]) {
-                        char temp = arr[j];
-                        arr[j] = arr[k];
-                        arr[k] = temp;
-                        // 자리 바꿨으면 뒤를 정렬
-                        Arrays.sort(arr, k+1, arr.length);
-                        j = -1;
-                        break;
-                    }
+            int index = arr.length-1;
+            for(int i=arr.length-1; i>0; i--) {
+                // 내 앞의 글자가 나보다 작아진 경우의 인덱스를 저장
+                if(arr[i] > arr[i-1]) {
+                    index = i-1;
+                    break;
                 }
-
             }
+
+            // 다시 뒤에서부터 체크
+            for(int i=arr.length-1; i>index; i--) {
+                // arr[index]보다 큰 문자 찾기
+                if(arr[i] > arr[index]) {
+                    // 두 문자 위치 바꿔주기
+                    swap(i, index);
+                    break;
+                }
+            }
+
+            // arr[index] 뒷부분은 정렬해주세요
+            Arrays.sort(arr, index+1, arr.length);
+
             System.out.println(arr);
         }
+    }
+
+    public static void swap(int i, int j) {
+        char temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
     }
 }
