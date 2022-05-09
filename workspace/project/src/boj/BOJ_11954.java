@@ -63,7 +63,7 @@ public class BOJ_11954 {
 
     public static void printTab(int count) {
         for(int i=0; i<count; i++) {
-            System.out.print("\t");
+            System.out.print("  ");
         }
     }
 }
