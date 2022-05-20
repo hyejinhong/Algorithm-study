@@ -83,8 +83,8 @@ public class BOJ_23629 {
         System.out.println(num[num.length-1]+"=");
     }
 
-    public static int calculate(int[] num, char[] oper) {
-        int result = num[0];
+    public static long calculate(int[] num, char[] oper) {
+        long result = num[0];
 
         for(int i=0; i<oper.length; i++) {
             int n = num[i+1];
@@ -108,7 +108,7 @@ public class BOJ_23629 {
         return result;
     }
 
-    public static String converse(int n) {
+    public static String converse(long n) {
         String nString = String.valueOf(n);
         StringBuilder result = new StringBuilder();
 
