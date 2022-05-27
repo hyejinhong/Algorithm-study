@@ -60,10 +60,10 @@ public class LeetCode_650 {
     }
 
     public static void setPrime() {
-        for(int i=2; i<Math.sqrt(1001); i++) {
+        for(int i=2; i<prime.length; i++) {
             // 소수이면 배수 걸러줌
             if(prime[i]) {
-                for(int j=i*2; j<Math.sqrt(1001); j+=i) {
+                for(int j=i*2; j<prime.length; j+=i) {
                     prime[j] = false;
                 }
             }
