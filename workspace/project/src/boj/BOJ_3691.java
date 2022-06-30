@@ -89,40 +89,42 @@ public class BOJ_3691 {
         }
 
         // 제일 퀄리티 낮은 부품을 업그레이드
-        long result;
+        long result = 0;
         while(true) {
             PartOrderByQuality lowest = cq.poll();
-            result = lowest.quality;
 
-            // 해당 타입이 더 선택지가 없으면 걘 걍 써야됨..
-            if(map.get(lowest.type).isEmpty()) {
+            boolean changeable = false;
+            Part next = null;
+
+            while(true) {
+
+                // 업그레이드 할 물건이 없으면 ㅂㅂ
+                if(map.get(lowest.type).isEmpty())
+                    break;
+
+                next = map.get(lowest.type).poll();
+
+                // 더 비싼거 꺼내봤는데 퀄리티가 더 낮으면 선택 X
+                if(next.quality <= lowest.quality)
+                    continue;
+
+                // 예산 안에서 바꿀 수 없음
+                if(sum - lowest.price + next.price > b)
+                    break;
+
+                // 위 경우가 아니면 바꿀 수 있는 것임
+                changeable = true;
                 break;
             }
-            // 좀 더 성능 좋은 걸로 바꿔봅시다..?
-            else {
-                while(true) {
-
-                    Part next = map.get(lowest.type).poll();
-
-                    // 더 비싼거 꺼내봤는데 퀄리티가 더 낮으면 선택 X
-                    if(next.quality <= lowest.quality) {
-                        // 다음 거 꺼내보세요
-                        continue;
-                    }
-                    // 예산 안에서 바꿀 수 있다
-                    if(sum - lowest.price + next.price <= b) {
-                        cq.offer(new PartOrderByQuality(next.type, next.name, next.price, next.quality));
-                        sum = sum - lowest.price + next.price;
-                        break;
-                    }
-                    // 예산 안에 못바꿔요
-                    else {
-                        // 나가렴..
-                        System.out.println(result);
-                        return;
-                    }
-                }
+            if(changeable) {
+                cq.offer(new PartOrderByQuality(next.type, next.name, next.price, next.quality));
+                sum = sum - lowest.price + next.price;
             }
+            else {
+                result = lowest.quality;
+                break;
+            }
+
         }
         System.out.println(result);
     }
