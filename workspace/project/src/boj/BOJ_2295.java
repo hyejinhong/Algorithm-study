@@ -32,7 +32,6 @@ public class BOJ_2295 {
 
         for(int a : set) {
             for(int b : set) {
-                if(a == b) continue;
                 ret.add(a + b);
             }
         }
