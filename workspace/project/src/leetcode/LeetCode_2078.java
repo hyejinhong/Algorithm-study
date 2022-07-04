@@ -31,22 +31,4 @@ public class LeetCode_2078 {
 
         return max;
     }
-
-//    public static int maxDistance(int[] colors) {
-//        int n = colors.length;
-//        int start = 0;
-//        int end = 0;
-//        int maxDistance = 0;
-//
-//        while(start < n) {
-//            // start == end -> end 한칸 뒤로
-//            if(colors[start] == colors[end])
-//                end++;
-//
-//            // start != end ->
-//            else if(colors[start] != colors[end]) {
-//
-//            }
-//        }
-//    }
 }
